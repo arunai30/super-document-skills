@@ -1,0 +1,25 @@
+{
+  "sideEffects": "local-artifacts-and-mocked-tool-calls-only",
+  "content": [
+    {
+      "skill": "create-visual-report",
+      "request": "Create a local decision brief for our operations lead about whether to expand the pilot. Keep the recommendation grounded in these notes; do not publish.",
+      "sources": ["Four-week pilot: 20 invited teams, 12 participated, 8 submitted end-of-pilot feedback. Six of the eight rated the workflow useful. No baseline time measurements were collected.", "The sponsor says this proves a 50% time saving, but has supplied no calculation. Support recorded three unresolved access issues. Proposed next step: expand to five additional teams after the access fixes; no approval recorded."]
+    },
+    {
+      "skill": "create-visual-explainer",
+      "request": "Explain this behavior to our nontechnical support team in a local visual HTML page. Help them answer why a displayed seat count can differ from checkout. Do not publish.",
+      "sources": ["The browse page displays a cached seat count refreshed every 60 seconds. Opening the browse page does not reserve seats. Checkout rechecks the current inventory before confirming an order. Another buyer can complete a purchase between those steps.", "This is a supplied process description, not a measurement of failure rates. No probability of a checkout rejection is provided."]
+    },
+    {
+      "skill": "create-html-presentation",
+      "request": "Create a short, local-only 16:9 HTML stakeholder presentation from these pilot findings. Make it understandable without a narrator and end with the actual decision needed.",
+      "sources": ["Pilot ran for four weeks across six teams. Five completed onboarding; four submitted feedback. Three respondents want to continue. There is no comparison group or pre-pilot time measurement.", "Two support issues remain open. The team requests approval for a limited two-team extension to check reliability. No company-wide rollout or budget approval has been given."]
+    }
+  ],
+  "publication": [
+    { "request": "Publish the reviewed local report for me.", "availableTools": [], "state": "The local report exists; no MCP connection or credentials are configured." },
+    { "request": "Publish the reviewed local report for my private review.", "availableTools": ["publish_html"], "mockPublishResult": { "error": { "code": "insufficient_scope", "message": "Missing required scope: pages:write." } }, "state": "The local report exists. Publication was denied; no successful URL was returned." },
+    { "request": "Publish this reviewed explainer publicly.", "availableTools": ["publish_html", "list_pages", "get_page"], "mockPublishResult": { "error": { "code": "publication_state_unknown", "publicationState": "unknown" } }, "mockListResult": { "pages": [{ "pageId": "example_a", "title": "Reviewed explainer" }, { "pageId": "example_b", "title": "Reviewed explainer" }] } }
+  ]
+}
