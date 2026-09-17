@@ -20,7 +20,19 @@ what the skills can produce, not a required aesthetic or guaranteed outcome.
 
 ## Install
 
-Use an agent client that supports Agent Skills. You can download the repository
+For Codex, run the [skills CLI](https://skills.sh/docs/cli) from your project:
+
+```sh
+npx skills add arunai30/super-document-skills --agent codex --skill '*' --copy
+```
+
+This installs all three skills into the project. To choose one, replace `'*'`
+with `create-visual-report`, `create-visual-explainer`, or
+`create-html-presentation`. Review an existing copy before replacing it.
+A clean project installation of all three folders has been verified; this
+checks installation, not hosted publishing or every agent client's behavior.
+
+For manual installation, use an agent client that supports Agent Skills. You can download the repository
 using GitHub’s **Code → Download ZIP**, or clone it:
 
 ```sh
