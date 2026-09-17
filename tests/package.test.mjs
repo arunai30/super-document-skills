@@ -5,9 +5,9 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const skillNames = ["create-html-presentation", "create-visual-explainer", "create-visual-report"];
+const skillNames = ["create-html-presentation", "create-visual-explainer", "create-visual-report", "create-workflow-diagram"];
 
-test("three complete, independently copyable skill packages", async () => {
+test("four complete, independently copyable skill packages", async () => {
   assert.deepEqual((await readdir(path.join(root, "skills"))).sort(), skillNames);
   for (const name of skillNames) {
     const folder = await realpath(path.join(root, "skills", name));

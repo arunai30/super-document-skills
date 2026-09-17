@@ -1,0 +1,128 @@
+{
+  "title": "A short link is a lookup, then a redirect",
+  "subtitle": "Follow one successful visit. A cache hit skips the database; the browser opens the destination after receiving the redirect.",
+  "source": {
+    "title": "Redis \u00b7 cache-aside",
+    "url": "https://redis.io/docs/latest/develop/use-cases/cache-aside/"
+  },
+  "sources": [
+    {
+      "title": "MDN \u00b7 HTTP 302",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/302"
+    }
+  ],
+  "scope": "Proposed URL-shortener read path. The two browser boxes are stages of the same client. Link creation, abuse controls, analytics and deployment are omitted.",
+  "primaryPath": [
+    "visitor",
+    "edge",
+    "resolver",
+    "browser",
+    "destination"
+  ],
+  "groups": [
+    {
+      "id": "lookup",
+      "label": "RESOLVE THE SHORT CODE"
+    },
+    {
+      "id": "navigate",
+      "label": "OPEN THE DESTINATION"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "visitor",
+      "label": "Browser\nshort URL",
+      "role": "actor",
+      "group": "lookup"
+    },
+    {
+      "id": "edge",
+      "label": "Request\nrouter",
+      "role": "service",
+      "group": "lookup"
+    },
+    {
+      "id": "resolver",
+      "label": "Redirect\nservice",
+      "role": "service",
+      "group": "lookup"
+    },
+    {
+      "id": "browser",
+      "label": "Browser\nredirect received",
+      "role": "actor",
+      "group": "navigate"
+    },
+    {
+      "id": "destination",
+      "label": "Destination\nwebsite",
+      "role": "service",
+      "group": "navigate"
+    },
+    {
+      "id": "cache",
+      "label": "Mapping cache\nRedis",
+      "role": "store"
+    },
+    {
+      "id": "db",
+      "label": "Link database",
+      "role": "store"
+    }
+  ],
+  "edges": [
+    {
+      "from": "visitor",
+      "to": "edge",
+      "label": "1 \u00b7 GET /code",
+      "role": "main"
+    },
+    {
+      "from": "edge",
+      "to": "resolver",
+      "label": "Route request",
+      "role": "main"
+    },
+    {
+      "from": "resolver",
+      "to": "browser",
+      "label": "4 \u00b7 302 + Location",
+      "role": "main"
+    },
+    {
+      "from": "browser",
+      "to": "destination",
+      "label": "5 \u00b7 Follow URL",
+      "role": "main"
+    },
+    {
+      "from": "resolver",
+      "to": "cache",
+      "label": "2 \u00b7 Check / fill",
+      "role": "support"
+    },
+    {
+      "from": "resolver",
+      "to": "db",
+      "label": "3 \u00b7 Miss: read mapping",
+      "role": "support"
+    }
+  ],
+  "legend": [
+    "Visit path",
+    "Lookup operations",
+    ""
+  ],
+  "notes": [
+    {
+      "title": "A hit skips step 3",
+      "body": "On a miss, the service reads the database and fills the cache before replying."
+    },
+    {
+      "title": "The browser makes the next request",
+      "body": "The shortener returns a destination URL. It does not fetch the destination page for the visitor."
+    }
+  ],
+  "designCaveat": "Design choice: use a temporary redirect. Cache freshness, disabled links and missing-code responses need explicit policies."
+}

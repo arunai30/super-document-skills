@@ -17,4 +17,4 @@ jobs:
         with:
           node-version: 24
       - name: Check packages and public release contents
-        run: node --test tests/package.test.mjs tests/release.test.mjs
+        run: node --test tests/*.test.mjs

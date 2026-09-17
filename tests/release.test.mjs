@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const names = ["create-html-presentation", "create-visual-explainer", "create-visual-report"];
+const names = ["create-html-presentation", "create-visual-explainer", "create-visual-report", "create-workflow-diagram"];
 const allowedFiles = [
   ".github/workflows/validate.yml", ".gitignore", "LICENSE", "README.md",
   "examples/README.md", "examples/source-inputs.md",
@@ -13,6 +13,11 @@ const allowedFiles = [
   "examples/onboarding-pilot-deck.html", "tests/package.test.mjs",
   "tests/release.test.mjs", "tests/check-mcp-contract.mjs", "tests/scenarios.json",
   ...names.flatMap((name) => ["SKILL.md", "LICENSE", "references/share-artifacts.md"].map((file) => `skills/${name}/${file}`)),
+  "tests/workflow-diagram.test.mjs",
+  ...["generate.mjs","layout.mjs","render.mjs","export-static.mjs","check.mjs","theme.mjs"].map(file=>`skills/create-workflow-diagram/scripts/${file}`),
+  "skills/create-workflow-diagram/references/model.html",
+  "skills/create-workflow-diagram/assets/url.json",
+  "skills/create-workflow-diagram/assets/webhook.json",
 ].sort();
 
 async function filesWithin(folder, relative = "") {
@@ -27,7 +32,7 @@ async function filesWithin(folder, relative = "") {
   return files.sort();
 }
 
-test("initial public release contains only the three approved packages and selected support files", async () => {
+test("public release contains only the four approved packages and selected support files", async () => {
   assert.deepEqual(await filesWithin(root), allowedFiles);
 });
 

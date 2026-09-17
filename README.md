@@ -2,7 +2,7 @@
 
 Turn notes, research, and results into documents people can understand and use.
 
-Three content-first [Agent Skills](https://agentskills.io/specification) help
+Four content-first [Agent Skills](https://agentskills.io/specification) help
 your agent choose a clear story, preserve the evidence, design meaningful
 visuals, and review the actual result. They leave room for your style instead
 of prescribing one template. No account or publishing connection is required.
@@ -14,6 +14,7 @@ of prescribing one template. No account or publishing connection is required.
 | [create-visual-report](skills/create-visual-report/SKILL.md) | Explain findings, compare options, or support a decision | “Turn these project notes into a decision brief. Show the tradeoffs, evidence, and open questions.” |
 | [create-visual-explainer](skills/create-visual-explainer/SKILL.md) | Make an idea, process, or system understandable | “Explain this process to our support team. Carry a worked example through a clear visual.” |
 | [create-html-presentation](skills/create-html-presentation/SKILL.md) | Build a paced argument, update, or lesson | “Make a read-alone HTML deck from these findings. Build toward the decision we need.” |
+| [create-workflow-diagram](skills/create-workflow-diagram/SKILL.md) | Explain one request or event path with computed diagram layout | “Show our webhook receiver, acknowledgement and retry paths. Use blueprint style.” |
 
 See the [example outputs and their source notes](examples/README.md). They show
 what the skills can produce, not a required aesthetic or guaranteed outcome.
@@ -26,10 +27,10 @@ For Codex, run the [skills CLI](https://skills.sh/docs/cli) from your project:
 npx skills add arunai30/super-document-skills --agent codex --skill '*' --copy
 ```
 
-This installs all three skills into the project. To choose one, replace `'*'`
+This installs all four skills into the project. To choose one, replace `'*'`
 with `create-visual-report`, `create-visual-explainer`, or
-`create-html-presentation`. Review an existing copy before replacing it.
-A clean project installation of all three folders has been verified; this
+`create-html-presentation`, or `create-workflow-diagram`. Review an existing copy before replacing it.
+A clean project installation of the original three folders has been verified; this
 checks installation, not hosted publishing or every agent client's behavior.
 
 For manual installation, use an agent client that supports Agent Skills. You can download the repository
@@ -39,16 +40,16 @@ using GitHub’s **Code → Download ZIP**, or clone it:
 git clone https://github.com/arunai30/super-document-skills.git
 ```
 
-1. Choose one of the three folders inside `skills/`.
+1. Choose one of the four folders inside `skills/`.
 2. Follow your client’s documented skill import or local installation flow.
-   Import the **whole folder**, including `SKILL.md`, `references/`, and `LICENSE`.
+   Import the **whole folder**, including all bundled scripts, assets, references, `SKILL.md`, and `LICENSE`.
    Keep the folder name unchanged. If that skill already exists, review it
    before replacing anything.
 3. Confirm that the skill appears in your client’s skill selector or discovery
    list. A clone alone does not install or activate it. Restart or reload your
    client only if its instructions require that.
 
-Each skill is independent. You do not need to install all three, run a custom
+Each skill is independent. You do not need to install all four, run a custom
 installer, add credentials, or connect share/artifacts. Client support and
 installation locations vary; this release does not claim testing in every client.
 
@@ -101,7 +102,7 @@ or hosted-publishing compatibility is implied by installing a skill.
 With Node.js 24 or newer, run the dependency-free package and release checks:
 
 ```sh
-node --test tests/package.test.mjs tests/release.test.mjs
+node --test tests/*.test.mjs
 ```
 
 Maintainers with a built share/artifacts product checkout can also check the
@@ -115,12 +116,22 @@ That optional check needs the checkout’s built `packages/mcp-server/dist/serve
 It does not install dependencies, connect to a service, or publish anything.
 It checks input schemas, not live connectivity or all output behavior.
 
-All three entrypoints passed the standard skill validator during preparation.
+The original three entrypoints passed the standard skill validator during preparation.
 Independent forward tests produced the included report, explainer, and five-slide
 deck from synthetic source notes. Desktop/mobile pixels and every printed deck
 slide were inspected. Missing, denied, and uncertain publishing were tested as
 decision simulations, not real network writes. These are exercised examples,
 not a quality benchmark or a claim of universal client compatibility.
+
+## Repeatable workflow diagrams
+
+The new diagram skill bundles a dependency-free Node.js renderer (Node 20+), two
+example models and editorial/blueprint themes. It separates semantic content,
+computed geometry and appearance. Its supported shape is a 3–7-node main path
+with a small supporting row, not arbitrary architecture graphs. Desktop examples
+and independent review informed the recipe; deterministic tests do not establish
+reader comprehension or universal layout support. The exact published experiment
+is documented in the [diagram-series blog](https://shareartifacts.dev/view/p_nKulpbRmNy4DcXHK5XaEJw).
 
 ## License
 
