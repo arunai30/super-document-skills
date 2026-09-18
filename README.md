@@ -20,6 +20,9 @@ of prescribing one template. No account or publishing connection is required.
 See the [example outputs and their source notes](examples/README.md). They show
 what the skills can produce, not a required aesthetic or guaranteed outcome.
 
+Read our [diagram vision](docs/diagram-vision.md): a free authoring library,
+readable diagrams, and portable HTML you own. See the [website examples](https://shareartifacts.dev/diagrams).
+
 ## Install
 
 For Codex, run the [skills CLI](https://skills.sh/docs/cli) from your project:
