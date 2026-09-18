@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Management Artifacts"
+  short_description: "Create clear project briefs, updates, plans, and decisions"
+  default_prompt: "Use $create-project-management-artifact to turn these project notes into a clear artifact for my audience, with evidence, open questions, and next actions."

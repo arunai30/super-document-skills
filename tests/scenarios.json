@@ -2,6 +2,14 @@
   "sideEffects": "local-artifacts-and-mocked-tool-calls-only",
   "content": [
     {
+      "skill": "create-project-management-artifact",
+      "request": "Create a local weekly sponsor update from these notes using wins, what's coming, current blockers, and risks ahead. Preserve unknowns; do not publish or assign work.",
+      "sources": [
+        "Fictional reporting period September 7–11, 2026. Invite flow passed staging QA in 12 of 12 test cases. No production acceptance evidence is available. Previous commitment: agree all 18 role rules this week. Only 14 are agreed; four still need Finance's decision.",
+        "Target pilot: September 18 for 20 customers. Nina in Finance has been asked to decide the four rules by September 15 at noon ET; she has not acknowledged the deadline. A smaller-scope pilot is proposed, not approved. No budget or impact measurements were supplied."
+      ]
+    },
+    {
       "skill": "create-visual-report",
       "request": "Create a local decision brief for our operations lead about whether to expand the pilot. Keep the recommendation grounded in these notes; do not publish.",
       "sources": [

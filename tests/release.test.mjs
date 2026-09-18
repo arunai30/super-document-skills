@@ -6,6 +6,7 @@ import test from "node:test";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const names = ["create-html-presentation", "create-visual-explainer", "create-visual-report", "create-workflow-diagram"];
+const allNames = [...names, "create-project-management-artifact"];
 const allowedFiles = [
   ".github/workflows/validate.yml", ".gitignore", "LICENSE", "README.md",
   "examples/README.md", "examples/source-inputs.md",
@@ -16,6 +17,7 @@ const allowedFiles = [
   "tests/workflow-diagram.test.mjs",
   "skills/create-workflow-diagram/references/authoring.html",
   "skills/create-workflow-diagram/assets/workflow-template.html",
+  ...["SKILL.md", "LICENSE", "agents/openai.yaml", "references/artifact-patterns.md", "assets/weekly-update-example.html"].map((file) => `skills/create-project-management-artifact/${file}`),
 ].sort();
 
 async function filesWithin(folder, relative = "") {
@@ -30,7 +32,7 @@ async function filesWithin(folder, relative = "") {
   return files.sort();
 }
 
-test("public release contains only the four approved packages and selected support files", async () => {
+test("public release contains only the five approved packages and selected support files", async () => {
   assert.deepEqual(await filesWithin(root), allowedFiles);
 });
 
@@ -38,7 +40,7 @@ test("each independently copied skill carries the full MIT notice", async () => 
   const license = await readFile(path.join(root, "LICENSE"), "utf8");
   assert.match(license, /^MIT License\n/);
   assert.match(license, /Copyright \(c\) 2026 arunai30/);
-  for (const name of names) {
+  for (const name of allNames) {
     assert.equal(await readFile(path.join(root, "skills", name, "LICENSE"), "utf8"), license);
     assert.match(await readFile(path.join(root, "skills", name, "SKILL.md"), "utf8"), /^license: MIT$/m);
   }

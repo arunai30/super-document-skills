@@ -2,7 +2,7 @@
 
 Turn notes, research, and results into documents people can understand and use.
 
-Four content-first [Agent Skills](https://agentskills.io/specification) help
+Five content-first [Agent Skills](https://agentskills.io/specification) help
 your agent choose a clear story, preserve the evidence, design meaningful
 visuals, and review the actual result. They leave room for your style instead
 of prescribing one template. No account or publishing connection is required.
@@ -15,6 +15,7 @@ of prescribing one template. No account or publishing connection is required.
 | [create-visual-explainer](skills/create-visual-explainer/SKILL.md) | Make an idea, process, or system understandable | “Explain this process to our support team. Carry a worked example through a clear visual.” |
 | [create-html-presentation](skills/create-html-presentation/SKILL.md) | Build a paced argument, update, or lesson | “Make a read-alone HTML deck from these findings. Build toward the decision we need.” |
 | [create-workflow-diagram](skills/create-workflow-diagram/SKILL.md) | Explain one request or event path with computed diagram layout | “Show our webhook receiver, acknowledgement and retry paths. Use blueprint style.” |
+| [create-project-management-artifact](skills/create-project-management-artifact/SKILL.md) | Communicate project scope, progress, risks, dependencies, or decisions | “Turn these notes into a weekly update: wins, what's coming, current blockers, and risks ahead. Lead with the decision needed.” |
 
 See the [example outputs and their source notes](examples/README.md). They show
 what the skills can produce, not a required aesthetic or guaranteed outcome.
@@ -27,9 +28,9 @@ For Codex, run the [skills CLI](https://skills.sh/docs/cli) from your project:
 npx skills add arunai30/super-document-skills --agent codex --skill '*' --copy
 ```
 
-This installs all four skills into the project. To choose one, replace `'*'`
-with `create-visual-report`, `create-visual-explainer`, or
-`create-html-presentation`, or `create-workflow-diagram`. Review an existing copy before replacing it.
+This installs all five skills into the project. To choose one, replace `'*'`
+with `create-visual-report`, `create-visual-explainer`,
+`create-html-presentation`, `create-workflow-diagram`, or `create-project-management-artifact`. Review an existing copy before replacing it.
 A clean project installation of the original three folders has been verified; this
 checks installation, not hosted publishing or every agent client's behavior.
 
@@ -40,7 +41,7 @@ using GitHub’s **Code → Download ZIP**, or clone it:
 git clone https://github.com/arunai30/super-document-skills.git
 ```
 
-1. Choose one of the four folders inside `skills/`.
+1. Choose one of the five folders inside `skills/`.
 2. Follow your client’s documented skill import or local installation flow.
    Import the **whole folder**, including all bundled assets and references, `SKILL.md`, and `LICENSE`.
    Keep the folder name unchanged. If that skill already exists, review it
@@ -49,7 +50,7 @@ git clone https://github.com/arunai30/super-document-skills.git
    list. A clone alone does not install or activate it. Restart or reload your
    client only if its instructions require that.
 
-Each skill is independent. You do not need to install all four, run a custom
+Each skill is independent. You do not need to install all five, run a custom
 installer, add credentials, or connect share/artifacts. Client support and
 installation locations vary; this release does not claim testing in every client.
 
@@ -122,6 +123,25 @@ deck from synthetic source notes. Desktop/mobile pixels and every printed deck
 slide were inspected. Missing, denied, and uncertain publishing were tested as
 decision simulations, not real network writes. These are exercised examples,
 not a quality benchmark or a claim of universal client compatibility.
+
+## Project-management artifacts
+
+The project-management skill covers project briefs, weekly updates, milestone
+and dependency plans, risk/issue briefs, and decision records. It chooses the
+structure by the reader's task, preserves requested formats such as email, and
+distinguishes evidence, proposals, commitments, and unknowns. Weekly updates
+can use the familiar 2×2: wins, what's coming, current blockers, and risks ahead.
+
+A [fictional weekly example](skills/create-project-management-artifact/assets/weekly-update-example.html)
+is bundled as a visual reference, not a source of project facts. The focused
+`create-weekly-update` skill is optional if already installed; the bundled
+patterns work without it. This package does not include a publishing adapter.
+
+Three independent text-only forward tests covered a short sponsor email,
+contradictory milestone dates, and a meeting with no approved decision. The
+email test used the optional installed weekly skill; standalone fallback and
+new HTML generation were not tested in that pass. The bundled HTML example
+was previously reviewed at desktop and narrow widths.
 
 ## Repeatable workflow diagrams
 

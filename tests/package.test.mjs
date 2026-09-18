@@ -5,9 +5,9 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const skillNames = ["create-html-presentation", "create-visual-explainer", "create-visual-report", "create-workflow-diagram"];
+const skillNames = ["create-html-presentation", "create-project-management-artifact", "create-visual-explainer", "create-visual-report", "create-workflow-diagram"];
 
-test("four complete, independently copyable skill packages", async () => {
+test("five complete, independently copyable skill packages", async () => {
   assert.deepEqual((await readdir(path.join(root, "skills"))).sort(), skillNames);
   for (const name of skillNames) {
     const folder = await realpath(path.join(root, "skills", name));
@@ -16,7 +16,7 @@ test("four complete, independently copyable skill packages", async () => {
     assert.match(header, new RegExp(`^name: ${name}$`, "m"));
     assert.match(header, /^description: .+/m);
     assert.ok(entry.length < 15_000, `${name} entrypoint should stay focused`);
-    const files = [path.join(folder, "SKILL.md"), path.join(folder, "references", "share-artifacts.md")];
+    const files = [path.join(folder, "SKILL.md"), path.join(folder, "references", name === "create-project-management-artifact" ? "artifact-patterns.md" : "share-artifacts.md")];
     let referenceCount = 0;
     for (const file of files) {
       const content = await readFile(file, "utf8");
@@ -27,7 +27,7 @@ test("four complete, independently copyable skill packages", async () => {
         referenceCount++;
       }
     }
-    assert.ok(referenceCount > 0, `${name} must route to its included publication reference`);
+    assert.ok(referenceCount > 0, `${name} must route to its included references`);
   }
 });
 
