@@ -9,6 +9,7 @@ const names = ["create-html-presentation", "create-visual-explainer", "create-vi
 const allNames = [...names, "create-project-management-artifact"];
 const allowedFiles = [
   ".github/workflows/validate.yml", ".gitignore", "LICENSE", "README.md",
+  "docs/diagram-vision.md", "examples/diagrams/checkout.webp",
   "examples/README.md", "examples/source-inputs.md",
   "examples/growth-decision-brief.html", "examples/seat-count-explainer.html",
   "examples/onboarding-pilot-deck.html", "tests/package.test.mjs",
