@@ -42,7 +42,7 @@ git clone https://github.com/arunai30/super-document-skills.git
 
 1. Choose one of the four folders inside `skills/`.
 2. Follow your client’s documented skill import or local installation flow.
-   Import the **whole folder**, including all bundled scripts, assets, references, `SKILL.md`, and `LICENSE`.
+   Import the **whole folder**, including all bundled assets and references, `SKILL.md`, and `LICENSE`.
    Keep the folder name unchanged. If that skill already exists, review it
    before replacing anything.
 3. Confirm that the skill appears in your client’s skill selector or discovery
@@ -75,8 +75,8 @@ available. The presentation skill is for HTML decks; it does not replace a
 request for PowerPoint or Google Slides. For those formats, use appropriate
 format-specific tools or skills.
 
-Open the HTML file in a browser to review it. The skills call for real visual
-checks on desktop and narrow screens, plus every slide in print for decks.
+Open the HTML file in a browser to review it. Reports, explainers, and decks call for visual checks on desktop and narrow
+screens, plus every slide in print for decks. Workflow diagrams default to desktop review.
 If rendering tools are unavailable, the agent should identify that limitation
 instead of claiming visual verification. Review the facts and appearance before
 sharing the result.
@@ -125,13 +125,33 @@ not a quality benchmark or a claim of universal client compatibility.
 
 ## Repeatable workflow diagrams
 
-The new diagram skill bundles a dependency-free Node.js renderer (Node 20+), two
-example models and editorial/blueprint themes. It separates semantic content,
-computed geometry and appearance. Its supported shape is a 3–7-node main path
-with a small supporting row, not arbitrary architecture graphs. Desktop examples
-and independent review informed the recipe; deterministic tests do not establish
-reader comprehension or universal layout support. The exact published experiment
-is documented in the [diagram-series blog](https://shareartifacts.dev/view/p_nKulpbRmNy4DcXHK5XaEJw).
+The diagram skill now includes a self-contained HTML/CSS template and a small
+connector grammar. Your agent writes the HTML directly; CSS calculates positions
+and paths in the browser. Creation needs no Node, Python, generator, package
+installation, external JavaScript library, account, or generation service.
+The `npx` command above is one optional installation method, not a creation
+requirement; clients that import skill folders can use the ZIP/manual route.
+
+Example: “Use create-workflow-diagram to show our webhook receiver, durable
+acceptance, and worker retry path. Use blueprint style. Create an HTML file.”
+
+The supported shape is a 3–7-node main path with a small supporting row and at
+most two distinct feedback paths. Prefer 3–5 nodes on ordinary desktops. Dense
+graphs, shared feedback endpoints, and precise concurrency need another view.
+Modern CSS container units are required to display the layout. Browser tools
+help review pixels but are optional for creation; an agent without them must
+say the result has not been visually reviewed.
+
+The customer client must load the complete skill folder and support HTML file
+or artifact output. Installation and rendering are not verified across every
+agent client. The original Node-based experiment remains documented in the
+[diagram-series blog](https://shareartifacts.dev/view/p_nKulpbRmNy4DcXHK5XaEJw);
+it describes the earlier experiment, not the current authoring requirement.
+Two independent file-only agent tests produced upload and order diagrams from
+one prompt each without generation code. Desktop review covered the outputs;
+follow-up checks corrected support ordering and added nonvisual descriptions.
+These examples do not establish compatibility with every client. Repository
+validation uses Node for maintainer checks only.
 
 ## License
 

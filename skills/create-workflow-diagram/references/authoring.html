@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Workflow authoring grammar</title><body>
+<h1>Content selects slots. CSS computes geometry.</h1>
+<p>Read the starter's CSS once and retain it in the final HTML. Write the file directly; no preprocessing or runtime. All numbers below are logical column indices, not pixels. Main nodes occupy slots 1 through N in DOM order. Set --columns:N on .canvas. Support nodes use --col:N and share the corresponding main column. Keep the .canvas container: descendants use its cqw units. Modern browsers are required.</p>
+<h2>Edges: copy only the needed pattern</h2>
+<p><b>forward</b>: primary column i to i+1. Set --from:i. Children: span.seg.h, span.arrow.right, span.edge-label. A real relationship is required between each adjacent main node. Label at most about 30 characters.</p>
+<p><b>drop</b>: primary i to support i. Set --from:i. Children: span.seg.v, span.arrow.down, span.edge-label. The support node must exist. Label at most about 30 characters. A read-request arrow points toward the store; it does not depict the data response.</p>
+<p><b>branch</b>: primary i to support j, i != j. Set --from:i;--to:j;--lane:0 or 1. Children: span.seg.v.out, span.seg.h.across, span.seg.v.in, span.arrow.down, span.edge-label. Prefer same-column drop edges; use no more than two branches. Branch lanes may cross other support stems, so split the view if that makes the meaning ambiguous.</p>
+<pre>&lt;div class="edge branch" style="--from:3;--to:5;--lane:0"&gt;
+  &lt;span class="seg v out"&gt;&lt;/span&gt;&lt;span class="seg h across"&gt;&lt;/span&gt;
+  &lt;span class="seg v in"&gt;&lt;/span&gt;&lt;span class="arrow down"&gt;&lt;/span&gt;
+  &lt;span class="edge-label"&gt;Record terminal failure&lt;/span&gt;
+&lt;/div&gt;</pre>
+<p><b>feedback</b>: primary i to an earlier primary j, j &lt; i. Set --from:i;--to:j;--lane:0 or 1. Children: span.seg.h.exit, span.seg.v.out, span.seg.h.across, span.seg.v.in, span.seg.h.enter, span.arrow.right, span.edge-label. Travels below the support row and enters the left edge of the target. Use at most two feedback edges with distinct lanes, distinct source columns, and distinct target columns. Shared endpoints would merge their vertical corridors; split the view instead. Feedback labels should fit two short lines.</p>
+<p>Connector crossings are not junctions. Avoid branch/feedback combinations with ambiguous crossings. There is no arbitrary graph routing, reverse support edge, support-to-support edge, or precise timing guarantee in this grammar. Omit unrelated components rather than inventing relationships to fit slots.</p>
+<h2>Readable content</h2>
+<p>Prefer node titles below 24 characters and a single short qualifier. For 6–7 nodes use a wider desktop page via one shared max-width/min-width change, or split into shorter paths if the reader is on a smaller screen. The default supports a desktop view from 1040px; horizontal overflow below that is intentional, not mobile support. Place details and caveats below the diagram. Keep color-independent labels and contrast. The two themes share all geometry.</p>
+<h2>Accessible relationships</h2><p>Update the starter's .sr-only paragraph with id="workflow-description" to describe every source, action and destination in reading order, including support and feedback edges. Retain aria-describedby on the diagram section. Give each description a distinct ID if the file has several views. CSS lines alone do not expose relationships to screen readers.</p>
+<h2>Manual integrity check</h2>
+<p>Count main nodes against --columns. Resolve every edge endpoint and support slot. Verify each arrow's direction and claim. Check feedback source greater than target and unique corridors; keep lanes 0 or 1. Remove unused sample nodes and edges. Escape &amp;, &lt;, &gt; and quotes in copied source content. Do not include scripts, forms, SVG, canvas, external fonts, dependencies, or network calls. If a browser is available, review the actual file; otherwise say visual review was unavailable. There is no hidden automated geometry validator.</p>
+</body></html>

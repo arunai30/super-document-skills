@@ -14,10 +14,8 @@ const allowedFiles = [
   "tests/release.test.mjs", "tests/check-mcp-contract.mjs", "tests/scenarios.json",
   ...names.flatMap((name) => ["SKILL.md", "LICENSE", "references/share-artifacts.md"].map((file) => `skills/${name}/${file}`)),
   "tests/workflow-diagram.test.mjs",
-  ...["generate.mjs","layout.mjs","render.mjs","export-static.mjs","check.mjs","theme.mjs"].map(file=>`skills/create-workflow-diagram/scripts/${file}`),
-  "skills/create-workflow-diagram/references/model.html",
-  "skills/create-workflow-diagram/assets/url.json",
-  "skills/create-workflow-diagram/assets/webhook.json",
+  "skills/create-workflow-diagram/references/authoring.html",
+  "skills/create-workflow-diagram/assets/workflow-template.html",
 ].sort();
 
 async function filesWithin(folder, relative = "") {

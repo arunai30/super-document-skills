@@ -69,4 +69,7 @@ Never invent a successful URL.
 
 ## Diagram output
 
-Publish the reviewed `share.html`, not the SVG-based `index.html`. The Node scripts run only during local creation; never upload them as page scripts. The hosted workflow-diagram recipe is a companion creation guide, not a server-side rendering API. Preserve existing publication authorization and audience choices.
+Publish the reviewed, directly authored HTML file. No generator output or local
+runtime is required. The hosted workflow-diagram recipe includes the complete
+static starter and authoring grammar; it is guidance, not a rendering API.
+Preserve existing publication authorization and audience choices.
