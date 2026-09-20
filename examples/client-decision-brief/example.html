@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cedar Studio · Enquiry workflow decision</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #ecebe3; color: #24372e; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.45; }
+    main { width: 100%; max-width: 1080px; margin: 0 auto; padding: 24px 30px 20px; background: #faf8f1; }
+    p, h1, h2, h3 { margin: 0; }
+    .masthead { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; padding-bottom: 15px; border-bottom: 1px solid #a7afa3; }
+    .brand { font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 700; letter-spacing: -.7px; }
+    .meta { color: #526052; font-size: 14px; }
+    .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; }
+    .decision { display: grid; grid-template-columns: 1.55fr 1fr; margin: 18px 0 20px; }
+    .recommendation { padding: 21px 23px 22px; color: #faf8f1; background: #183f32; }
+    .recommendation .eyebrow { color: #d0ddbc; }
+    h1 { max-width: 17em; margin-top: 9px; font-family: Georgia, "Times New Roman", serif; font-size: 32px; font-weight: 400; line-height: 1.08; letter-spacing: -.6px; }
+    .recommendation p:last-child { max-width: 37em; margin-top: 13px; color: #e7ebdf; }
+    .request { padding: 21px 22px 20px; background: #e8eddf; border-left: 3px solid #bbca9c; }
+    .request h2 { margin-top: 9px; font-size: 20px; font-weight: 600; line-height: 1.25; letter-spacing: -.35px; }
+    .request .due { display: block; }
+    .request p { margin-top: 12px; }
+    .pending { font-size: 14px; font-weight: 600; color: #40533e; }
+    .section-heading { margin-bottom: 10px; font-size: 19px; font-weight: 650; letter-spacing: -.35px; }
+    .comparison-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 15px; flex-wrap: wrap; }
+    .comparison-intro .section-heading { margin-bottom: 3px; }
+    .ceiling { font-size: 14px; color: #40533e; }
+    .ceiling strong { font-size: 17px; }
+    .exclusions { margin: 6px 0 13px; color: #526052; font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    th, td { width: 50%; padding: 10px 18px; text-align: left; vertical-align: top; }
+    th { padding-top: 14px; padding-bottom: 14px; border-top: 2px solid #294d3e; border-bottom: 1px solid #a7afa3; }
+    th + th, td + td { border-left: 1px solid #bdc6b5; background: #eff2e7; }
+    th .eyebrow { display: block; color: #526052; }
+    th h3 { margin-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 400; line-height: 1.14; letter-spacing: -.25px; }
+    td { border-bottom: 1px solid #d3d8cb; }
+    td .field { display: block; margin-bottom: 3px; color: #526052; font-size: 12px; }
+    .amount { display: block; font-size: 30px; font-weight: 550; line-height: 1.12; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+    .timing { font-weight: 650; }
+    .evidence { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 19px; padding-bottom: 17px; border-bottom: 1px solid #a7afa3; }
+    .evidence h2 { margin-bottom: 6px; font-size: 15px; font-weight: 700; }
+    .evidence p { font-size: 14px; }
+    .baseline { color: #183f32; }
+    .next { padding-top: 14px; }
+    .next h2 { font-size: 15px; font-weight: 700; }
+    ol { display: grid; grid-template-columns: 1fr 1fr 1.25fr; gap: 13px 26px; margin: 9px 0 0; padding-left: 20px; font-size: 14px; }
+    li { padding-left: 2px; }
+    li::marker { color: #405b34; font-weight: 700; }
+    footer { margin-top: 17px; color: #526052; font-size: 12px; }
+    @media (max-width: 580px) {
+      body { font-size: 14px; }
+      main { padding: 19px 18px 18px; }
+      .masthead { display: block; padding-bottom: 12px; }
+      .brand { font-size: 27px; }
+      .meta { margin-top: 3px; }
+      .eyebrow { font-size: 14px; letter-spacing: .65px; }
+      .decision { grid-template-columns: 1fr; margin-top: 15px; margin-bottom: 20px; }
+      .recommendation { padding: 20px; }
+      h1 { margin-top: 10px; font-size: 31px; line-height: 1.08; }
+      .recommendation p:last-child { margin-top: 12px; }
+      .request { padding: 16px 20px 17px; border-top: 3px solid #bbca9c; border-left: 0; }
+      .request h2 { margin-top: 7px; font-size: 20px; }
+      .request p { margin-top: 9px; }
+      .section-heading { font-size: 21px; }
+      .comparison-intro { display: block; }
+      .ceiling { margin-top: 5px; }
+      .exclusions { margin-top: 7px; }
+      th, td { padding: 11px 11px; }
+      th { padding-top: 12px; padding-bottom: 12px; }
+      th h3 { font-size: 20px; }
+      td .field { font-size: 14px; line-height: 1.25; }
+      .amount { font-size: 27px; }
+      .evidence { grid-template-columns: 1fr; gap: 15px; margin-top: 18px; padding-bottom: 18px; }
+      .evidence h2, .next h2 { font-size: 16px; }
+      ol { display: block; margin-top: 8px; }
+      li + li { margin-top: 7px; }
+      footer { margin-top: 16px; font-size: 14px; }
+    }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: #fff; font-size: 10pt; }
+      main { max-width: none; padding: 0; background: #fff; }
+      .decision { break-inside: avoid; }
+      .recommendation { color: #183f32; background: #fff; border: 1px solid #a7afa3; }
+      .recommendation .eyebrow, .recommendation p:last-child { color: #24372e; }
+      .request, th + th, td + td { background: #f0f2eb; }
+      h1 { font-size: 24pt; }
+      th, td { padding: 7px 13px; }
+      tr, .evidence, .next { break-inside: avoid; }
+      .exclusions, .evidence p, ol, .meta, .ceiling, .pending { font-size: 9pt; }
+      footer { font-size: 8pt; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <p class="brand">Cedar Studio</p>
+      <p class="meta">Prepared by Alex · September 7, 2026</p>
+    </header>
+
+    <section class="decision" aria-label="Recommendation and requested decision">
+      <div class="recommendation">
+        <p class="eyebrow">Conditional recommendation · Option B</p>
+        <h1>Choose the guided flow—if someone owns routing.</h1>
+        <p>To reduce manual handling of inbound project enquiries, B addresses manual triage and fits the stated budget before exclusions.</p>
+      </div>
+      <aside class="request">
+        <span class="eyebrow">Decision pending</span>
+        <h2>Robin, project sponsor <span class="due">By September 11, 2026</span></h2>
+        <p>Choose A or B.<br>If B, name the routing owner.</p>
+        <p class="pending">No option has been approved.</p>
+      </aside>
+    </section>
+
+    <section aria-labelledby="options-heading">
+      <div class="comparison-intro">
+        <h2 class="section-heading" id="options-heading">Two paths, different tradeoffs</h2>
+        <p class="ceiling">Budget ceiling <strong>$5,000</strong></p>
+      </div>
+      <p class="exclusions">Both one-time estimates fit before tax and ongoing maintenance, which are excluded. Neither is a signed quote.</p>
+      <table aria-label="Compare the enquiry workflow options">
+        <thead>
+          <tr>
+            <th scope="col"><span class="eyebrow">Option A</span><h3>Repair the existing enquiry form</h3></th>
+            <th scope="col"><span class="eyebrow">Option B</span><h3>Guided enquiry flow + routing rules</h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="field">Estimated one-time cost</span><strong class="amount">$2,000</strong></td>
+            <td><span class="field">Estimated one-time cost</span><strong class="amount">$4,500</strong></td>
+          </tr>
+          <tr>
+            <td><span class="field">Estimated delivery</span><span class="timing">1 week</span> after approval</td>
+            <td><span class="field">Estimated delivery</span><span class="timing">3 weeks</span> after approval</td>
+          </tr>
+          <tr>
+            <td><span class="field">Benefit</span>Familiar workflow</td>
+            <td><span class="field">Benefit</span>Better structured inputs</td>
+          </tr>
+          <tr>
+            <td><span class="field">Client effort / tradeoff</span>Manual triage remains.</td>
+            <td><span class="field">Client effort / tradeoff</span>Staff training and validation of routing rules required.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="evidence" aria-label="Evidence and uncertainty">
+      <div>
+        <h2>Starting point, not a savings claim</h2>
+        <p><strong class="baseline">About 5 staff hours per week</strong> handling enquiries: Robin’s estimate, not time-tracked. No conversion baseline or proven savings or conversion lift.</p>
+      </div>
+      <div>
+        <h2>Still unknown</h2>
+        <p>Actual time saved, maintenance cost, tax, routing owner and conversion impact. Without a routing owner, revisit the recommendation.</p>
+      </div>
+    </section>
+
+    <section class="next" aria-labelledby="next-heading">
+      <h2 id="next-heading">After approval</h2>
+      <ol>
+        <li>Confirm scope and exclusions.</li>
+        <li>Benchmark handling time.</li>
+        <li>Validate routing with staff before launch.</li>
+      </ol>
+    </section>
+    <footer>Fictional worked example · Source: the accompanying client notes.</footer>
+  </main>
+</body>
+</html>

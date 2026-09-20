@@ -41,6 +41,7 @@ for (const [name, fields] of Object.entries(expectedInputs)) {
 }
 const parse = (name, input) => definitions.get(name).inputSchema.safeParse(input);
 for (const recipeId of ["visual-report", "infographic-explainer", "presentation-deck"]) assert.ok(parse("get_recipe", { recipeId }).success);
+assert.ok(parse("get_recipe", { recipeId: "client-decision-brief", version: 1 }).success);
 for (const format of ["report", "explainer"]) assert.ok(parse("get_artifact_style", { format }).success);
 assert.equal(parse("get_artifact_style", { format: "presentation" }).success, false);
 const html = "<!doctype html><html><head><title>Local fixture</title></head><body><main>Local fixture only</main></body></html>";

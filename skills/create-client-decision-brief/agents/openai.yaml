@@ -1,0 +1,4 @@
+interface:
+  display_name: "Client Decision Brief"
+  short_description: "Make a client choice clear without hiding tradeoffs"
+  default_prompt: "Use $create-client-decision-brief to turn my client notes into a decision-ready draft."

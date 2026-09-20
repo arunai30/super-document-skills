@@ -1,6 +1,7 @@
 # Example outputs
 
-These self-contained HTML files were created during independent skill testing.
+These self-contained HTML files include independent skill-test outputs and a
+first-party worked client example.
 Download or clone the repository, then open an HTML file in your browser;
 GitHub’s file view shows its source rather than rendering the page.
 
@@ -9,8 +10,9 @@ GitHub’s file view shows its source rather than rendering the page.
 | create-visual-report | [Growth decision brief](growth-decision-brief.html) | Counts versus rates, honest comparison scales, and a recommendation bounded by the evidence |
 | create-visual-explainer | [Seat-count explainer](seat-count-explainer.html) | A cached browsing estimate versus an actual checkout hold, carried through a worked timeline |
 | create-html-presentation | [Onboarding pilot deck](onboarding-pilot-deck.html) | Five slides that distinguish observed results, incomplete feedback, and an unapproved proposal |
+| create-client-decision-brief | [Cedar Studio decision brief](client-decision-brief/README.md) | A conditional recommendation, comparable estimates, visible exclusions, and a decision still pending; includes its own source notes and live preview |
 
-The [source notes](source-inputs.md) contain fictional datasets and teaching
+The [original three examples' source notes](source-inputs.md) contain fictional datasets and teaching
 scenarios, not real customer results. They are included so you can compare the
 claims with the supplied evidence or ask your agent to create a different version.
 They are examples, not the only layouts or visual styles the skills should use.

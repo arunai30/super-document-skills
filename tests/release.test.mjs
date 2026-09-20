@@ -6,7 +6,7 @@ import test from "node:test";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const names = ["create-html-presentation", "create-visual-explainer", "create-visual-report", "create-workflow-diagram"];
-const allNames = [...names, "create-project-management-artifact"];
+const allNames = [...names, "create-project-management-artifact", "create-client-decision-brief"];
 const allowedFiles = [
   ".github/workflows/validate.yml", ".gitignore", "LICENSE", "README.md",
   "docs/diagram-vision.md", "examples/diagrams/checkout.webp",
@@ -16,9 +16,14 @@ const allowedFiles = [
   "tests/release.test.mjs", "tests/check-mcp-contract.mjs", "tests/scenarios.json",
   ...names.flatMap((name) => ["SKILL.md", "LICENSE", "references/share-artifacts.md"].map((file) => `skills/${name}/${file}`)),
   "tests/workflow-diagram.test.mjs",
+  "tests/client-decision-brief.test.mjs",
+  "examples/client-decision-brief/README.md",
+  "examples/client-decision-brief/example.html",
+  "examples/client-decision-brief/source-notes.txt",
   "skills/create-workflow-diagram/references/authoring.html",
   "skills/create-workflow-diagram/assets/workflow-template.html",
   ...["SKILL.md", "LICENSE", "agents/openai.yaml", "references/artifact-patterns.md", "assets/weekly-update-example.html"].map((file) => `skills/create-project-management-artifact/${file}`),
+  ...["SKILL.md", "LICENSE", "agents/openai.yaml", "references/method.md", "references/evidence.md", "references/share-artifacts.md", "assets/brief.html"].map((file) => `skills/create-client-decision-brief/${file}`),
 ].sort();
 
 async function filesWithin(folder, relative = "") {
@@ -33,7 +38,7 @@ async function filesWithin(folder, relative = "") {
   return files.sort();
 }
 
-test("public release contains only the five approved packages and selected support files", async () => {
+test("public release contains only the six approved packages and selected support files", async () => {
   assert.deepEqual(await filesWithin(root), allowedFiles);
 });
 

@@ -2,7 +2,7 @@
 
 Turn notes, research, and results into documents people can understand and use.
 
-Five content-first [Agent Skills](https://agentskills.io/specification) help
+Six content-first [Agent Skills](https://agentskills.io/specification) help
 your agent choose a clear story, preserve the evidence, design meaningful
 visuals, and review the actual result. They leave room for your style instead
 of prescribing one template. No account or publishing connection is required.
@@ -16,6 +16,7 @@ of prescribing one template. No account or publishing connection is required.
 | [create-html-presentation](skills/create-html-presentation/SKILL.md) | Build a paced argument, update, or lesson | “Make a read-alone HTML deck from these findings. Build toward the decision we need.” |
 | [create-workflow-diagram](skills/create-workflow-diagram/SKILL.md) | Explain one request or event path with computed diagram layout | “Show our webhook receiver, acknowledgement and retry paths. Use blueprint style.” |
 | [create-project-management-artifact](skills/create-project-management-artifact/SKILL.md) | Communicate project scope, progress, risks, dependencies, or decisions | “Turn these notes into a weekly update: wins, what's coming, current blockers, and risks ahead. Lead with the decision needed.” |
+| [create-client-decision-brief](skills/create-client-decision-brief/SKILL.md) | Help a client assess a pending choice and its tradeoffs | “Compare these quotes for my client. Make the recommendation conditional where needed, show unknown costs, and draft the exact decision request.” |
 
 See the [example outputs and their source notes](examples/README.md). They show
 what the skills can produce, not a required aesthetic or guaranteed outcome.
@@ -31,9 +32,10 @@ For Codex, run the [skills CLI](https://skills.sh/docs/cli) from your project:
 npx skills add arunai30/super-document-skills --agent codex --skill '*' --copy
 ```
 
-This installs all five skills into the project. To choose one, replace `'*'`
+This installs all six skills into the project. To choose one, replace `'*'`
 with `create-visual-report`, `create-visual-explainer`,
-`create-html-presentation`, `create-workflow-diagram`, or `create-project-management-artifact`. Review an existing copy before replacing it.
+`create-html-presentation`, `create-workflow-diagram`, `create-project-management-artifact`,
+or `create-client-decision-brief`. Review an existing copy before replacing it.
 A clean project installation of the original three folders has been verified; this
 checks installation, not hosted publishing or every agent client's behavior.
 
@@ -44,7 +46,7 @@ using GitHub’s **Code → Download ZIP**, or clone it:
 git clone https://github.com/arunai30/super-document-skills.git
 ```
 
-1. Choose one of the five folders inside `skills/`.
+1. Choose one of the six folders inside `skills/`.
 2. Follow your client’s documented skill import or local installation flow.
    Import the **whole folder**, including all bundled assets and references, `SKILL.md`, and `LICENSE`.
    Keep the folder name unchanged. If that skill already exists, review it
@@ -53,7 +55,7 @@ git clone https://github.com/arunai30/super-document-skills.git
    list. A clone alone does not install or activate it. Restart or reload your
    client only if its instructions require that.
 
-Each skill is independent. You do not need to install all five, run a custom
+Each skill is independent. You do not need to install all six, run a custom
 installer, add credentials, or connect share/artifacts. Client support and
 installation locations vary; this release does not claim testing in every client.
 
@@ -126,6 +128,30 @@ deck from synthetic source notes. Desktop/mobile pixels and every printed deck
 slide were inspected. Missing, denied, and uncertain publishing were tested as
 decision simulations, not real network writes. These are exercised examples,
 not a quality benchmark or a claim of universal client compatibility.
+
+## Client decision briefs
+
+Help a client make a pending choice, not reconstruct a meeting or mistake a
+proposal for approval. The [client-brief skill](skills/create-client-decision-brief/SKILL.md)
+compares credible options on matching costs and criteria, keeps unknowns visible,
+and explains what would change the recommendation. Use a decision record for an
+already-made choice and the client's established workflow for actual approval.
+
+Start with the [worked example and source notes](examples/client-decision-brief/README.md),
+or [see it in the live guide](https://shareartifacts.dev/guides/client-decision-brief).
+The example is fictional; its conditional recommendation is not a customer result.
+
+> Use $create-client-decision-brief to help my client choose between the attached
+> options. Preserve exclusions, conflicting estimates, and what is not yet approved.
+> Create a draft for review; do not send or publish it.
+
+The default is self-contained HTML, but an explicit email, Word, PDF, or other
+format takes precedence. No account or MCP connection is needed. The optional
+`client-decision-brief@1` backend recipe uses the same method and starter.
+Independent fresh-input tests covered a conditional HTML recommendation and an
+under-300-word email with conflicting quotes and hostile instructions embedded
+in source data. Those checks are not a real-client comprehension study or a
+claim of compatibility with every agent. See the [package notes](examples/client-decision-brief/README.md).
 
 ## Project-management artifacts
 

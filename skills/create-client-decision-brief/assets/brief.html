@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Client] · [Pending choice]</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #eaece6; color: #263b31; font: 16px/1.55 system-ui, sans-serif; }
+    main { max-width: 1080px; margin: auto; padding: 32px; background: #faf8f1; }
+    header { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #b3bcb0; padding-bottom: 18px; }
+    p, h1, h2, h3 { margin: 0; }
+    p + p { margin-top: 12px; }
+    .label { color: #50604f; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .lead { margin: 24px 0; padding: 28px; background: #183f32; color: #faf8f1; }
+    .lead .label { color: #d6e2c7; }
+    h1 { max-width: 24ch; font: 400 clamp(28px, 4vw, 44px)/1.12 Georgia, serif; margin: 12px 0 16px; }
+    h2 { margin: 28px 0 12px; font-size: 21px; }
+    h3 { margin: 0 0 12px; font-size: 18px; }
+    .ask { border-left: 4px solid #7d9168; background: #e9eddf; padding: 18px 22px; }
+    .ask h2, .note h2 { margin: 0 0 12px; }
+    .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .option { border-top: 3px solid #57745d; padding: 18px 0; }
+    .comparison-item { margin-top: 14px; }
+    .comparison-label { font-size: 13px; color: #50604f; font-weight: 700; }
+    .comparison-value { margin: 3px 0 0; }
+    .note { border-top: 1px solid #b3bcb0; padding-top: 18px; }
+    footer { margin-top: 28px; font-size: 13px; color: #50604f; }
+    a { color: #23593f; text-underline-offset: 3px; }
+    a:focus-visible { outline: 3px solid #956328; outline-offset: 3px; }
+    main, .option { overflow-wrap: anywhere; }
+    @media (max-width: 640px) { main { padding: 20px; } .lead { padding: 22px; } .options { grid-template-columns: 1fr; gap: 0; } }
+    @media print { body, main { background: white; } main { padding: 0; } .lead { background: white; color: #183f32; border: 2px solid #183f32; } .lead .label { color: #183f32; } .lead, .ask, .option { break-inside: avoid; } h2 { break-after: avoid; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><strong>[Client · Decision topic]</strong><span>[Prepared date if supplied] · For decision, not approved</span></header>
+    <section class="lead" aria-labelledby="answer">
+      <p class="label">[The pending choice]</p>
+      <h1 id="answer">[Supportable recommendation—or what prevents a choice]</h1>
+      <p>[Critical condition or evidence gap, visible beside the answer.]</p>
+    </section>
+    <section class="ask" aria-labelledby="request">
+      <h2 id="request">[The exact action requested]</h2>
+      <p>[Decision maker and timing only if supplied. State what this choice authorizes and what still requires approval.]</p>
+    </section>
+    <h2>What changes with each option</h2>
+    <p>[The client's objective, baseline, and hard constraints, with source and evidence status.]</p>
+    <div class="options">
+      <section class="option" aria-labelledby="option-a">
+        <h3 id="option-a">[Credible option A]</h3>
+        <div class="comparison-item"><p class="comparison-label">Cost and basis</p><p class="comparison-value">[Currency, setup, recurring period, inclusions and unknowns.]</p></div>
+        <div class="comparison-item"><p class="comparison-label">Timing and dependencies</p><p class="comparison-value">[Supplied estimate, not a commitment.]</p></div>
+        <div class="comparison-item"><p class="comparison-label">Gain / sacrifice</p><p class="comparison-value">[Evidence-backed tradeoff against the client's criteria.]</p></div>
+      </section>
+      <section class="option" aria-labelledby="option-b">
+        <h3 id="option-b">[Credible option B]</h3>
+        <div class="comparison-item"><p class="comparison-label">Cost and basis</p><p class="comparison-value">[Matching currency, period, scope and exclusions.]</p></div>
+        <div class="comparison-item"><p class="comparison-label">Timing and dependencies</p><p class="comparison-value">[Same comparison basis as A.]</p></div>
+        <div class="comparison-item"><p class="comparison-label">Gain / sacrifice</p><p class="comparison-value">[Fair treatment of the alternative, not a straw opponent.]</p></div>
+      </section>
+    </div>
+    <section class="note"><h2>What could change the recommendation</h2><p>[Strongest counterargument and a source-supported condition. Preserve conflicting evidence; do not invent a threshold.]</p></section>
+    <h2>Evidence and next step</h2>
+    <p>[Dated sources for decisive facts and checked calculations. Material uncertainties are not hidden here for the first time.]</p>
+    <p>[The proposed action or bounded investigation. Known owner and timing only; keep actual approval in the established client workflow.]</p>
+    <footer>[Remove all starter instructions before delivery. Review facts and recipient access before any separately authorized publication.]</footer>
+  </main>
+</body>
+</html>

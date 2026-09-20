@@ -1,0 +1,9 @@
+FICTIONAL SOURCE BUNDLE — not customer data.
+Client: Cedar Studio. Brief prepared September 7, 2026, by consultant Alex for sponsor Robin.
+Goal: reduce manual handling of inbound project enquiries. Current baseline: about 5 staff hours per week, estimated by Robin, not time-tracked. No conversion baseline.
+Option A: repair the existing enquiry form. Estimated one-time cost $2,000, delivery 1 week after approval. Familiar workflow, but manual triage remains.
+Option B: a guided enquiry flow with routing rules. Estimated one-time cost $4,500, delivery 3 weeks after approval. Better structured inputs, but requires staff training and validation of routing rules.
+Budget ceiling: $5,000. Both estimates exclude tax and ongoing maintenance; neither is a signed quote.
+Alex recommends B if Robin can assign a routing owner. Reason: it addresses manual triage and fits the stated budget before exclusions. Do not claim proven savings or conversion lift.
+Decision requested from Robin by September 11, 2026: choose A or B and, if B, name the routing owner. Nothing approved yet.
+Unknowns: actual time saved, maintenance cost, tax, routing owner, and conversion impact. Next after approval: confirm scope and exclusions; benchmark handling time; validate routing with staff before launch.
