@@ -1,0 +1,182 @@
+# Usage, compatibility, and validation
+
+[Back to the library](../README.md)
+
+## Install
+
+For Codex, run the [skills CLI](https://skills.sh/docs/cli) from your project:
+
+```sh
+npx skills add arunai30/super-document-skills --agent codex --skill '*' --copy
+```
+
+This installs all six skills into the project. To choose one, replace `'*'`
+with `create-visual-report`, `create-visual-explainer`,
+`create-html-presentation`, `create-workflow-diagram`, `create-project-management-artifact`,
+or `create-client-decision-brief`. Review an existing copy before replacing it.
+A clean project installation of the original three folders has been verified; this
+checks installation, not hosted publishing or every agent client's behavior.
+
+For manual installation, use an agent client that supports Agent Skills. You can download the repository
+using GitHub’s **Code → Download ZIP**, or clone it:
+
+```sh
+git clone https://github.com/arunai30/super-document-skills.git
+```
+
+1. Choose one of the six folders inside `skills/`.
+2. Follow your client’s documented skill import or local installation flow.
+   Import the **whole folder**, including all bundled assets and references, `SKILL.md`, and `LICENSE`.
+   Keep the folder name unchanged. If that skill already exists, review it
+   before replacing anything.
+3. Confirm that the skill appears in your client’s skill selector or discovery
+   list. A clone alone does not install or activate it. Restart or reload your
+   client only if its instructions require that.
+
+Each skill is independent. You do not need to install all six, run a custom
+installer, add credentials, or connect share/artifacts. Client support and
+installation locations vary; this release does not claim testing in every client.
+
+If your agent can install skills from GitHub, you can ask it:
+
+> Install `create-visual-report` from
+> `https://github.com/arunai30/super-document-skills/tree/main/skills/create-visual-report`.
+> Review the skill before installing it, and ask before replacing an existing copy.
+
+## Use
+
+Select the installed skill and supply your source material, intended reader,
+desired outcome, and any visual direction. For example:
+
+> Use create-visual-report to make a decision brief for our operations lead from
+> these pilot notes. Compare the options, preserve the denominators, and keep
+> uncertainty beside the claims. Use a warm editorial style. Create a local
+> HTML file; do not publish it.
+
+The default output is a local static HTML artifact. Reports and explainers
+preserve an explicitly requested different format when suitable tools are
+available. The presentation skill is for HTML decks; it does not replace a
+request for PowerPoint or Google Slides. For those formats, use appropriate
+format-specific tools or skills.
+
+Open the HTML file in a browser to review it. Reports, explainers, and decks call for visual checks on desktop and narrow
+screens, plus every slide in print for decks. Workflow diagrams default to desktop review.
+If rendering tools are unavailable, the agent should identify that limitation
+instead of claiming visual verification. Review the facts and appearance before
+sharing the result.
+
+## Optional publishing with share/artifacts
+
+Content creation comes first. Publishing is a separate action that requires
+your explicit request and an already-connected compatible MCP client.
+
+The included references describe first-party recipes, requested saved styles
+where supported, and publishing through [share/artifacts](https://shareartifacts.dev).
+New publications default to owner-only access. The skills do not set up an
+account, collect credentials in chat, change saved styles, or make a local draft
+public as a side effect. If publishing is unavailable, you still keep the local
+artifact.
+
+See [connection instructions](https://shareartifacts.dev/connect) and the
+[MCP tool reference](https://shareartifacts.dev/mcp). No live account connection
+or hosted-publishing compatibility is implied by installing a skill.
+
+## Validation
+
+With Node.js 24 or newer, run the dependency-free package and release checks:
+
+```sh
+node --test tests/*.test.mjs
+```
+
+Maintainers with a built share/artifacts product checkout can also check the
+optional MCP arguments against its actual registration schemas:
+
+```sh
+node tests/check-mcp-contract.mjs /absolute/path/to/product-checkout
+```
+
+That optional check needs the checkout’s built `packages/mcp-server/dist/server.js`.
+It does not install dependencies, connect to a service, or publish anything.
+It checks input schemas, not live connectivity or all output behavior.
+
+The original three entrypoints passed the standard skill validator during preparation.
+Independent forward tests produced the included report, explainer, and five-slide
+deck from synthetic source notes. Desktop/mobile pixels and every printed deck
+slide were inspected. Missing, denied, and uncertain publishing were tested as
+decision simulations, not real network writes. These are exercised examples,
+not a quality benchmark or a claim of universal client compatibility.
+
+## Client decision briefs
+
+Help a client make a pending choice, not reconstruct a meeting or mistake a
+proposal for approval. The [client-brief skill](../skills/create-client-decision-brief/SKILL.md)
+compares credible options on matching costs and criteria, keeps unknowns visible,
+and explains what would change the recommendation. Use a decision record for an
+already-made choice and the client's established workflow for actual approval.
+
+Start with the [worked example and source notes](../examples/client-decision-brief/README.md),
+or [see it in the live guide](https://shareartifacts.dev/guides/client-decision-brief).
+The example is fictional; its conditional recommendation is not a customer result.
+
+> Use $create-client-decision-brief to help my client choose between the attached
+> options. Preserve exclusions, conflicting estimates, and what is not yet approved.
+> Create a draft for review; do not send or publish it.
+
+The default is self-contained HTML, but an explicit email, Word, PDF, or other
+format takes precedence. No account or MCP connection is needed. The optional
+`client-decision-brief@1` backend recipe uses the same method and starter.
+Independent fresh-input tests covered a conditional HTML recommendation and an
+under-300-word email with conflicting quotes and hostile instructions embedded
+in source data. Those checks are not a real-client comprehension study or a
+claim of compatibility with every agent. See the [package notes](../examples/client-decision-brief/README.md).
+
+## Project-management artifacts
+
+The project-management skill covers project briefs, weekly updates, milestone
+and dependency plans, risk/issue briefs, and decision records. It chooses the
+structure by the reader's task, preserves requested formats such as email, and
+distinguishes evidence, proposals, commitments, and unknowns. Weekly updates
+can use the familiar 2×2: wins, what's coming, current blockers, and risks ahead.
+
+A [fictional weekly example](../skills/create-project-management-artifact/assets/weekly-update-example.html)
+is bundled as a visual reference, not a source of project facts. The focused
+`create-weekly-update` skill is optional if already installed; the bundled
+patterns work without it. This package does not include a publishing adapter.
+
+Three independent text-only forward tests covered a short sponsor email,
+contradictory milestone dates, and a meeting with no approved decision. The
+email test used the optional installed weekly skill; standalone fallback and
+new HTML generation were not tested in that pass. The bundled HTML example
+was previously reviewed at desktop and narrow widths.
+
+## Repeatable workflow diagrams
+
+The diagram skill now includes a self-contained HTML/CSS template and a small
+connector grammar. Your agent writes the HTML directly; CSS calculates positions
+and paths in the browser. Creation needs no Node, Python, generator, package
+installation, external JavaScript library, account, or generation service.
+The `npx` command above is one optional installation method, not a creation
+requirement; clients that import skill folders can use the ZIP/manual route.
+
+Example: “Use create-workflow-diagram to show our webhook receiver, durable
+acceptance, and worker retry path. Use blueprint style. Create an HTML file.”
+
+The supported shape is a 3–7-node main path with a small supporting row and at
+most two distinct feedback paths. Prefer 3–5 nodes on ordinary desktops. Dense
+graphs, shared feedback endpoints, and precise concurrency need another view.
+Modern CSS container units are required to display the layout. Browser tools
+help review pixels but are optional for creation; an agent without them must
+say the result has not been visually reviewed.
+
+The customer client must load the complete skill folder and support HTML file
+or artifact output. Installation and rendering are not verified across every
+agent client. The original Node-based experiment remains documented in the
+[diagram-series blog](https://shareartifacts.dev/view/p_nKulpbRmNy4DcXHK5XaEJw);
+it describes the earlier experiment, not the current authoring requirement.
+Two independent file-only agent tests produced upload and order diagrams from
+one prompt each without generation code. Desktop review covered the outputs;
+follow-up checks corrected support ordering and added nonvisual descriptions.
+These examples do not establish compatibility with every client. Repository
+validation uses Node for maintainer checks only.
+

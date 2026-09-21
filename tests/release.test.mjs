@@ -9,6 +9,9 @@ const names = ["create-html-presentation", "create-visual-explainer", "create-vi
 const allNames = [...names, "create-project-management-artifact", "create-client-decision-brief"];
 const allowedFiles = [
   ".github/workflows/validate.yml", ".gitignore", "LICENSE", "README.md",
+  "docs/usage-and-validation.md", "examples/try-it.md",
+  "examples/previews/growth-decision-brief.png", "examples/previews/seat-count-explainer.png",
+  "examples/previews/onboarding-pilot-deck.png",
   "docs/diagram-vision.md", "examples/diagrams/checkout.webp",
   "examples/README.md", "examples/source-inputs.md",
   "examples/growth-decision-brief.html", "examples/seat-count-explainer.html",
@@ -58,7 +61,7 @@ test("public documentation links resolve inside the checkout", async () => {
     const text = await readFile(path.join(root, file), "utf8");
     for (const [, target] of text.matchAll(/\]\(([^)]+)\)/g)) {
       if (/^https?:\/\//.test(target) || target.startsWith("#")) continue;
-      const resolved = await realpath(path.resolve(root, path.dirname(file), target));
+      const resolved = await realpath(path.resolve(root, path.dirname(file), target.split("#")[0]));
       assert.ok(resolved.startsWith(`${actualRoot}${path.sep}`), `${file}: link escapes the release`);
     }
   }
