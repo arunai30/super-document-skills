@@ -10,7 +10,8 @@ const allNames = [...names, "create-project-management-artifact", "create-client
 const allowedFiles = [
   ".github/workflows/validate.yml", ".gitignore", "LICENSE", "README.md",
   "docs/usage-and-validation.md", "examples/try-it.md",
-  "examples/previews/growth-decision-brief.png", "examples/previews/seat-count-explainer.png",
+  "examples/previews/README.md", "examples/previews/client-decision-brief.png",
+  "examples/previews/weekly-status-report.png", "examples/previews/growth-decision-brief.png", "examples/previews/seat-count-explainer.png",
   "examples/previews/onboarding-pilot-deck.png",
   "docs/diagram-vision.md", "examples/diagrams/checkout.webp",
   "examples/README.md", "examples/source-inputs.md",

@@ -8,9 +8,9 @@ No account or publishing connection required.
 
 [See the examples](examples/README.md) · [Install](#install) · [Try a complete sample](examples/try-it.md)
 
-[![A growth decision brief turns cohort counts into comparable activation rates and a bounded recommendation.](examples/previews/growth-decision-brief.png)](examples/previews/growth-decision-brief.png)
+[![Cedar Studio decision brief: a conditional recommendation, a pending decision, and a complete side-by-side cost and delivery comparison.](examples/previews/client-decision-brief.png)](https://shareartifacts.dev/examples/client-decision-brief)
 
-*Actual output from fictional source notes. Click the image to enlarge it.*
+*A complete fictional client brief: recommendation, tradeoffs, and the decision needed. [Open the live example](https://shareartifacts.dev/examples/client-decision-brief).*
 
 ## Start with the job you need done
 
@@ -34,12 +34,16 @@ required visual style. Follow each example to its input, exact request, and outp
 | Six rules about seat reservations | A visual explanation of why two people can see the last seat | [Explainer walkthrough](examples/README.md#make-a-complex-idea-click) |
 | Pilot results and incomplete feedback | A five-slide case for a bounded next step | [Presentation walkthrough](examples/README.md#build-a-story-for-a-decision) |
 
-[![Seat-reservation explainer: browsing an available seat is different from holding it at checkout.](examples/previews/seat-count-explainer.png)](examples/README.md#make-a-complex-idea-click)
+[![Slide 2: a visual comparison of median first-task times, with the limits of the evidence visible.](examples/previews/onboarding-pilot-deck.png)](examples/README.md#build-a-story-for-a-decision)
 
-[![Opening of a five-slide onboarding pilot deck proposing a two-week extension.](examples/previews/onboarding-pilot-deck.png)](examples/README.md#build-a-story-for-a-decision)
+*HTML presentations: a complete evidence slide, rather than just the title.*
 
-Also explore the [live client decision brief](https://shareartifacts.dev/examples/client-decision-brief)
-and its [source notes](examples/client-decision-brief/source-notes.txt).
+[![Blueprint workflow diagram with an order path, supporting systems, and a confirmation return path.](examples/diagrams/checkout.webp)](examples/README.md#show-how-a-system-works)
+
+*Workflow diagrams: named steps and labeled connections in a blueprint style.*
+
+[Explore all six visual examples](examples/README.md), including report charts,
+a worked timeline, and a weekly update. Styles are examples, not fixed templates.
 
 ## Install
 
