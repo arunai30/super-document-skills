@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Decision: replace with the choice</title><style>
+*{box-sizing:border-box}
+/* Base look (the STYLE block below sets each preset): warm paper, a light cover with an accent band, one deep-blue accent with a soft tint, grey for the options not chosen. */
+:root{--ink:#15181d;--muted:#5b6470;--line:#dcdfe3;--accent:#1f4fd6;--accent-soft:#e8eefc;--other:#a3acb8;--paper:#fbfaf7;--page:#e9e7e2;--font-title:system-ui,-apple-system,"Segoe UI",sans-serif;--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--title-weight:700;--title-tracking:-.02em;--radius:0}
+body{margin:0;background:var(--page);color:var(--ink)}
+main{font-family:var(--font-body);color:var(--ink);container-type:inline-size;width:min(100%,1280px);margin:0 auto;counter-reset:slide}
+/* Every size below is a share of slide width (cqw), so a 16:9 slide keeps its proportions at any screen width. */
+/* FRAME: the same on every slide. Padding, and a footer line with the slide number pinned to the bottom. */
+.share-slide{position:relative;counter-increment:slide;aspect-ratio:16/9;margin:0 0 2cqw;padding:4.2cqw 6.25cqw 6cqw;background:var(--paper);display:flex;flex-direction:column;font-size:2cqw;line-height:1.42;overflow:hidden}
+.share-slide:not(#slide-1)::after{content:counter(slide);position:absolute;left:6.25cqw;right:6.25cqw;bottom:2.4cqw;padding-top:.8cqw;border-top:1px solid var(--line);text-align:right;font-size:1.1cqw;color:var(--muted)}
+/* TITLE: at the top of every slide after the cover, in the same place, so a reader flipping through finds each claim where they expect it. */
+.share-slide>h2{flex:none}
+/* STAGE: one per slide, holding everything under the title. It places the body as one block a little above the middle of the space between the title and the footer (one part above, two below), so a light slide stays balanced; add stage-top for a dense slide that reads better starting right under the title. Compose the body freely inside it. On the cover the stage holds everything. */
+.stage{flex:1;min-height:0;display:flex;flex-direction:column;gap:2.2cqw;padding-top:2.2cqw}.stage::before,.stage::after{content:"";flex:1 1 0;min-height:0}.stage::before{margin-bottom:-2.2cqw}.stage::after{flex-grow:2;margin-top:-2.2cqw}
+.stage-top::before{flex-grow:0}#slide-1 .stage{padding-top:0}#slide-1 .stage::after{flex-grow:1}.stage-top{justify-content:flex-start}
+.stage>*,.split>*{min-width:0}
+/* Slide 1 is the cover: the same paper as the other slides, an accent band on the left, the title and the ask. */
+#slide-1{padding-left:8.5cqw}#slide-1 .stage{gap:2.6cqw}
+#slide-1::before{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--band,1.4cqw);background:var(--accent)}
+#slide-1 .ask{max-width:60ch}
+.kicker{margin:0;font-size:1.2cqw;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h2 strong{color:var(--accent)}
+/* TYPE: one scale for the whole deck. h1 cover title, h2 slide title (the claim, with a short accent rule above it), .lede a larger lead line, body text, .kicker a small label, .note small muted text, .big one statement set large. */
+h2::before{content:"";display:block;width:4cqw;height:var(--rule,.35cqw);background:var(--accent);margin-bottom:1.6cqw}
+h1,h2{margin:0;font-family:var(--font-title);font-weight:var(--title-weight);letter-spacing:var(--title-tracking);text-wrap:balance}
+/* Slide titles use the full width so a short claim stays on one line; only the cover title is held to two big lines. */
+h1{max-width:20ch;font-size:calc(4.6cqw * var(--title-scale,1));line-height:1.06}h2{font-size:calc(3.2cqw * var(--title-scale,1));line-height:1.12}
+.sub{margin:0;color:var(--muted);font-size:2cqw}
+p{margin:0;max-width:70ch}.muted{color:var(--muted)}
+.lede{font-size:2.4cqw;line-height:1.35}.note{font-size:1.35cqw;color:var(--muted)}
+.ask{margin:0;border-left:.35cqw solid var(--accent);background:var(--accent-soft);padding:1.4cqw 1.8cqw;border-radius:0 var(--radius) var(--radius) 0}
+/* Tables: a strong header rule, light row lines, and the recommended option tinted (add class="pick" to its cells). */
+table{border-collapse:collapse;width:100%;font-size:1.7cqw}th,td{text-align:left;padding:1cqw 1.2cqw;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-size:1.15cqw;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--ink);white-space:nowrap}
+tbody th{font-weight:600}.pick{background:var(--accent-soft)}thead .pick{color:var(--accent)}
+/* BLOCKS: optional parts; use them or write your own grid. .split puts a lead line in a left column beside the evidence; .cols two equal columns; .facts label-and-sentence rows; .steps a short sequence across the width. */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:5cqw;align-items:center}.split>:first-child{display:flex;flex-direction:column;gap:1.6cqw}
+.steps{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:3cqw}.steps>*{border-top:2px solid var(--ink);padding-top:1.2cqw;display:flex;flex-direction:column;gap:.8cqw}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:4cqw;align-items:start}.cols>*{min-width:0;display:flex;flex-direction:column;gap:1.2cqw}
+.facts{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:0 3cqw}.facts dt,.facts dd{padding:1.2cqw 0;border-top:1px solid var(--line)}.facts dt{font-weight:650;color:var(--accent);max-width:28cqw}.facts dd{margin:0}
+.big{font-family:var(--font-title);font-size:3cqw;line-height:1.22;font-weight:650;letter-spacing:-.01em;max-width:36ch;text-wrap:balance}.big strong{color:var(--accent)}
+/* Charts: inline SVG that scales with the slide. Use these classes for marks and labels so colours stay consistent. */
+.chart{overflow-x:auto}.chart svg{display:block;width:100%;height:auto}
+.mark{fill:var(--accent)}.mark-other{fill:var(--other)}.mark-soft{fill:var(--accent-soft)}.rule{stroke:var(--line);stroke-width:2}
+.label{fill:var(--ink);font-size:26px}.label-on{fill:#fff;font-size:26px;font-weight:600}.label-muted{fill:var(--muted);font-size:22px}
+/* STYLE:START. The look. Put one preset class on main (style-default, style-editorial, style-bold or style-playful); for brand colours or fonts, change that preset's variables here. */
+.style-default{--ink:#15181d;--muted:#5b6470;--line:#dcdfe3;--accent:#1f4fd6;--accent-soft:#e8eefc;--other:#a3acb8;--paper:#fbfaf7;--font-title:system-ui,-apple-system,"Segoe UI",sans-serif;--font-body:system-ui,-apple-system,"Segoe UI",sans-serif;--title-weight:700;--title-tracking:-.02em;--rule:.35cqw;--radius:0}
+.style-editorial{--ink:#1f1c18;--muted:#6b645b;--line:#ddd5c8;--accent:#8c2f1f;--accent-soft:#f3e6df;--other:#b9ad9c;--paper:#f8f4ec;--font-title:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--font-body:"Avenir Next","Segoe UI",system-ui,sans-serif;--title-weight:600;--title-tracking:-.01em;--rule:.2cqw;--radius:0}
+.style-bold{--ink:#0c0c0e;--muted:#55575e;--line:#d6d7db;--accent:#e2401c;--accent-soft:#fde8e1;--other:#9a9da5;--paper:#ffffff;--font-title:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;--font-body:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;--title-weight:800;--title-tracking:-.04em;--title-scale:1.16;--band:3.2cqw;--rule:.7cqw;--radius:0}
+.style-playful{--ink:#1f2140;--muted:#5d5f80;--line:#e1ddf0;--accent:#6440d8;--accent-soft:#eeeaff;--other:#bdb6dc;--paper:#fffdf8;--font-title:ui-rounded,"SF Pro Rounded","Nunito","Avenir Next",system-ui,sans-serif;--font-body:ui-rounded,"SF Pro Rounded","Nunito","Avenir Next",system-ui,sans-serif;--title-weight:750;--title-tracking:-.015em;--rule:.45cqw;--radius:.8cqw}
+/* STYLE:END */
+@media(max-width:760px){.share-slide{aspect-ratio:auto;overflow:visible;padding:32px 22px 52px;font-size:17px}.stage{gap:16px;padding-top:16px}.stage::before,.stage::after{display:none}h2::before{width:36px;height:3px;margin-bottom:14px}.split,.steps{grid-template-columns:1fr;grid-auto-flow:row;gap:20px}.lede{font-size:20px}.note{font-size:13px}.share-slide:not(#slide-1)::after{font-size:12px;left:22px;right:22px;bottom:14px;padding-top:6px}.cols,.facts{grid-template-columns:1fr}.facts dd{border-top:0;padding-top:0}.big{font-size:24px}.kicker{font-size:12px}h1{font-size:32px}h2{font-size:26px}.sub{font-size:17px}table{font-size:15px}thead th{font-size:12px;white-space:normal}th,td{padding:8px 10px}.ask{padding:12px 14px}.chart svg{min-width:600px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{@page{size:13.333in 7.5in;margin:0}body{background:#fff}main{width:13.333in}.share-slide{height:7.5in;margin:0;break-after:page;-webkit-print-color-adjust:exact;print-color-adjust:exact}.share-slide:last-child{break-after:auto}}
+</style></head><body><main class="share-presentation style-default">
+<section class="share-slide" id="slide-1" aria-labelledby="s1"><div class="stage"><p class="kicker">Decision for the reader · by the date it depends on</p><h1 id="s1">Recommend X now, Y next quarter</h1><p class="ask">The ask in one line: what you need approved, and what it does not commit.</p></div></section>
+<section class="share-slide" id="slide-2" aria-labelledby="s2"><h2 id="s2">A short claim about the problem</h2><div class="stage split"><div><p class="lede">One line on who it affects and what it costs them.</p></div><dl class="facts"><dt>Who is affected</dt><dd>Each group and what the problem costs them, as a full sentence.</dd><dt>What matters most</dt><dd>The criteria in order, with the reason for the order.</dd></dl></div></section>
+<section class="share-slide" id="slide-3" aria-labelledby="s3"><h2 id="s3">A short claim comparing the options</h2><div class="stage stage-top"><table><thead><tr><th scope="col">Criterion</th><th scope="col" class="pick">Option A</th><th scope="col">Option B</th></tr></thead><tbody><tr><th scope="row">Most important criterion</th><td class="pick">Value from the notes</td><td>Value from the notes</td></tr></tbody></table></div></section>
+<section class="share-slide" id="slide-4" aria-labelledby="s4"><h2 id="s4">A claim the chart proves</h2><div class="stage"><div class="chart"><svg viewBox="0 0 1000 230" role="img" aria-labelledby="c4"><title id="c4">Replace with a chart drawn to scale</title><line class="rule" x1="0" y1="20" x2="0" y2="210"/><rect class="mark" x="0" y="40" width="640" height="64"/><text class="label-on" x="20" y="81">Option A: value from the notes</text><rect class="mark-other" x="0" y="126" width="260" height="64"/><text class="label" x="280" y="167">Option B: value</text></svg></div><p class="note">One line on what the chart leaves out, if it matters.</p></div></section>
+<section class="share-slide" id="slide-5" aria-labelledby="s5"><h2 id="s5">What we give up, and how we limit it</h2><div class="stage"><dl class="facts"><dt>What we give up</dt><dd>One full sentence on what the recommendation costs.</dd><dt>Best case against</dt><dd>One full sentence making the case for the other option.</dd><dt>How easy to undo</dt><dd>One full sentence on how hard this is to reverse, and until when.</dd><dt>What would change our mind</dt><dd>One full sentence naming the evidence that would flip the call.</dd></dl></div></section>
+<section class="share-slide" id="slide-6" aria-labelledby="s6"><h2 id="s6">Approve <strong>option A</strong> by the date it depends on</h2><div class="stage"><dl class="facts"><dt>This approves</dt><dd>The direction, spend or staffing, as a full sentence.</dd><dt>This leaves open</dt><dd>What stays undecided, as a full sentence.</dd><dt>We also need</dt><dd>Anything the decision needs from the reader, with the reason, as a full sentence.</dd></dl></div></section>
+</main></body></html>
