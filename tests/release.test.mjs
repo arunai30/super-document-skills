@@ -24,6 +24,8 @@ const allowedFiles = [
   "examples/client-decision-brief/README.md",
   "examples/client-decision-brief/example.html",
   "examples/client-decision-brief/source-notes.txt",
+  ...["recipes/_common.md", "recipes/pm-decision-deck.md", "recipes/presentation-deck.md", "assets/starter.html", "scripts/check.mjs"].map((file) => `skills/create-html-presentation/${file}`),
+  "tests/presentation-router.test.mjs",
   "skills/create-workflow-diagram/references/authoring.html",
   "skills/create-workflow-diagram/assets/workflow-template.html",
   ...["SKILL.md", "LICENSE", "agents/openai.yaml", "references/artifact-patterns.md", "assets/weekly-update-example.html"].map((file) => `skills/create-project-management-artifact/${file}`),

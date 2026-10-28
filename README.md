@@ -20,7 +20,7 @@ No account or publishing connection required.
 | Make a complex idea understandable | [Visual explainer](skills/create-visual-explainer/SKILL.md) | Carry one concrete example through a meaningful visual |
 | Help a client choose between options | [Client decision brief](skills/create-client-decision-brief/SKILL.md) | Compare costs and tradeoffs, then make a conditional recommendation |
 | Turn research or results into a decision | [Visual report](skills/create-visual-report/SKILL.md) | Connect evidence, uncertainty, and a useful next step |
-| Present an argument, update, or lesson | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck |
+| Present an argument, update, or lesson, or get a product decision approved | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck; a tested recipe turns product notes into a decision deck an executive can approve |
 | Show how a request moves through a system | [Workflow diagram](skills/create-workflow-diagram/SKILL.md) | Lay out a short main path with supporting and feedback paths |
 
 ## See what your notes can become
