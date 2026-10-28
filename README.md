@@ -42,6 +42,31 @@ npx skills add arunai30/super-document-skills --agent codex --skill create-html-
 
 Then give your agent your notes and the decision you need. [How it was tested, with every number](docs/decision-deck-results.md).
 
+## New: roadmap decks your leadership can agree to
+
+A roadmap deck has one job: get leadership to agree what gets built, in what order, and what that pushes out. I
+gave Claude and Codex the same 12 roadmap requests, three of them requests the skill was never tuned on. A blind
+reviewer read every slide and said whether they'd send each deck as it is.
+
+| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
+| --- | --- | --- |
+| On its own: would send | 0 of 12 | 2 of 12 |
+| **With this skill: would send** | **12 of 12** | **11 of 12** |
+
+What the roadmap recipe fixes:
+
+- **No plans you didn't make.** On their own, every deck added owners, deadlines, checkpoints or "decision needed today". With the skill, dates, estimates and next steps come only from your notes.
+- **No recommendation you didn't give.** When the reader has to choose, the options are set out alike.
+- **Evidence at its real size.** No "biggest churn driver" for a reason 31% of exit surveys gave.
+- **Honest timelines.** Quarters or now / next / later, whichever your leader wants, with confidence falling with distance and real commitments marked.
+- **Tradeoffs in the open.** What each order delays and a short "not now" list, on their own slides.
+- **Customer roadmaps that are safe to send.** No customer names, revenue, estimates or slips; uncertain items not promised; quarters labelled; no added marketing claims.
+
+[![Same CEO roadmap request to Claude Opus 5.5. On its own, the timeline adds a slip risk the notes don't give and the comparison slide adds risks that tilt a neutral choice; the reviewer wouldn't send it. With the skill, one timeline shows both orders and the shared work, and the closing slide asks a neutral question built only from the notes; the reviewer would send it.](examples/previews/roadmap-before-after.png)](docs/roadmap-results.md)
+
+Install it with the same commands as the decision deck above; the skill picks the roadmap recipe when you ask for
+a roadmap. [How it was tested, with every number](docs/roadmap-results.md).
+
 ## New: product updates that don't make things up
 
 Your VP reads your update to see where things stand and what you need. I gave Claude and Codex the same 12 product
@@ -77,7 +102,7 @@ Install it with the same commands as the decision deck above; the skill picks th
 | Make a complex idea understandable | [Visual explainer](skills/create-visual-explainer/SKILL.md) | Carry one concrete example through a meaningful visual |
 | Help a client choose between options | [Client decision brief](skills/create-client-decision-brief/SKILL.md) | Compare costs and tradeoffs, then make a conditional recommendation |
 | Turn research or results into a decision | [Visual report](skills/create-visual-report/SKILL.md) | Connect evidence, uncertainty, and a useful next step |
-| Present an argument or lesson, update leadership, or get a product decision approved | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck; tested recipes turn product notes into a decision deck an executive can approve or a product update against goals |
+| Present an argument or lesson, update leadership, agree a roadmap, or get a product decision approved | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck; tested recipes turn product notes into a decision deck, a product update against goals, or a roadmap leadership can agree to |
 | Show how a request moves through a system | [Workflow diagram](skills/create-workflow-diagram/SKILL.md) | Lay out a short main path with supporting and feedback paths |
 
 ## See what your notes can become
