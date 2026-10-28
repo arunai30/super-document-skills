@@ -12,7 +12,7 @@ const links = (text) => [...text.matchAll(/\]\(([^)#]+)\)/g)].map(([, target]) =
 test("the presentation router names every recipe it bundles, and each recipe's links stay inside the skill", async () => {
   const router = await read("SKILL.md");
   const recipes = links(router).filter((target) => target.startsWith("recipes/"));
-  assert.deepEqual([...new Set(recipes)].sort(), ["recipes/_common.md", "recipes/pm-decision-deck.md", "recipes/presentation-deck.md", "recipes/product-update-deck.md"]);
+  assert.deepEqual([...new Set(recipes)].sort(), ["recipes/_common.md", "recipes/pm-decision-deck.md", "recipes/presentation-deck.md", "recipes/product-update-deck.md", "recipes/roadmap-review-deck.md"]);
   const root = await realpath(folder);
   for (const recipe of recipes) {
     for (const target of links(await read(recipe))) {
