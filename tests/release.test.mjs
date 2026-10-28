@@ -13,6 +13,7 @@ const allowedFiles = [
   "examples/previews/README.md", "examples/previews/client-decision-brief.png",
   "examples/previews/weekly-status-report.png", "examples/previews/growth-decision-brief.png", "examples/previews/seat-count-explainer.png",
   "examples/previews/onboarding-pilot-deck.png",
+  "examples/previews/decision-deck-before-after.png", "examples/previews/decision-deck-styles.png", "docs/decision-deck-results.md",
   "docs/diagram-vision.md", "examples/diagrams/checkout.webp",
   "examples/README.md", "examples/source-inputs.md",
   "examples/growth-decision-brief.html", "examples/seat-count-explainer.html",
