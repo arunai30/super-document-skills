@@ -1,7 +1,7 @@
 ---
 name: create-html-presentation
 license: MIT
-description: Create narrative-led HTML slide decks for pitches, talks, lessons, updates and product decisions, with slide-by-slide review. Includes a tested recipe for a product decision deck that helps an executive approve what to build, change, keep, retire or roll out. Use for an HTML presentation; do not replace an explicitly requested PowerPoint, Google Slides, or other native format.
+description: Create narrative-led HTML slide decks for pitches, talks, lessons, updates and product decisions, with slide-by-slide review. Includes a tested recipe for a product decision deck that helps an executive approve what to build, change, keep, retire or roll out, and a recipe for regular product updates to leadership. Use for an HTML presentation; do not replace an explicitly requested PowerPoint, Google Slides, or other native format.
 ---
 
 # Create an HTML presentation
@@ -12,11 +12,13 @@ deck has to do, read only the files it names, and follow them.
 | The deck has to… | Read |
 | --- | --- |
 | Help an executive make or approve one product decision: what to build or change, whether to keep or retire something, or how to roll it out. A product manager's decision deck, pre-read or slides for a VP, director or manager. | [recipes/_common.md](recipes/_common.md), then [recipes/pm-decision-deck.md](recipes/pm-decision-deck.md) |
-| Anything else: a pitch, talk, lesson, research readout or update | [recipes/presentation-deck.md](recipes/presentation-deck.md) |
+| Report progress to leadership on a regular cadence: a weekly, monthly or quarterly product update, status update or business review that shows results against goals, what changed and what is needed from the reader. | [recipes/_common.md](recipes/_common.md), then [recipes/product-update-deck.md](recipes/product-update-deck.md) |
+| Anything else: a pitch, talk, lesson or research readout | [recipes/presentation-deck.md](recipes/presentation-deck.md) |
 
 If the request fits both, choose by what the audience must do at the end: approve a
-product decision means the decision deck; learn, be persuaded or be informed means
-the general recipe. A user's explicit layout, template or style instructions win
+product decision means the decision deck; see where things stand against goals in a
+regular update (even one that ends with a decision) means the product update deck;
+learn or be persuaded means the general recipe. A user's explicit layout, template or style instructions win
 over a recipe's defaults.
 
 Work locally without an account or MCP. Publishing to share/artifacts is

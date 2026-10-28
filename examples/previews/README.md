@@ -11,6 +11,7 @@ The crops keep complete sections, chart scales, caveats, and sequence outcomes.
 | Onboarding deck | [HTML](../onboarding-pilot-deck.html) | Complete slide 2, 1280 × 720 |
 | Client brief | [HTML](../client-decision-brief/example.html) | 100, 0, 1080, 962: complete document |
 | Decision deck before/after | Release-test decks for the pricing request, Claude Opus 5.5 on its own and with the skill | Complete slides 1 and 2 of each deck at 1280 × 720, unedited; [results](../../docs/decision-deck-results.md) |
+| Product update before/after | Release-test decks for the CEO growth-update request (held out from tuning), Claude Opus 5.5 on its own (slides 1 and 3) and with the skill (slides 1 and 2) | Complete slides at 1280 × 720, unedited; [results](../../docs/product-update-results.md) |
 | Decision deck styles | Decks made with the skill for the pricing request plus one style line each (Claude Opus 5.5 and Codex) | One unedited slide per deck at 1280 × 720 |
 | Weekly report | [Live example](https://shareartifacts.dev/examples/weekly-status-report) | 108, 440, 1064, 786: decision request and sprint comparison |
 
