@@ -8,6 +8,42 @@ No account or publishing connection required.
 
 [See the examples](examples/README.md) · [Install](#install) · [Try a complete sample](examples/try-it.md)
 
+## New: decision decks you'd actually send
+
+Not happy with the decks Claude or Codex make? I gave both agents the same 12 product decisions. A blind
+reviewer read every slide and said whether they'd send each deck as it is.
+
+| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
+| --- | --- | --- |
+| On its own: would send | 3 of 12 | 3 of 12 |
+| **With this skill: would send** | **9 of 12** | **8 of 12** |
+
+[![Same pricing request to Claude Opus 5.5. On its own, slide 1 has no answer and slide 2 is four identical number tiles; the reviewer wouldn't send it. With the skill, slide 1 gives the recommendation and the ask and slide 2 is one chart that makes the point; the reviewer would send it.](examples/previews/decision-deck-before-after.png)](docs/decision-deck-results.md)
+
+Across all 24 decks, the skill took invented statements from 16 decks to 5, broken layouts from 11 to 0, and
+template-looking decks from 8 to 0. It isn't a longer prompt. It's six small pieces, each fixing one thing
+agents get wrong, and the agent stays free everywhere else:
+
+- **A router** picks the method for the job: an executive decision gets the decision recipe, a talk or lesson gets the general one.
+- **Argument rules**: the answer and the ask on slide 1, every option (including waiting) with the same numbers, only facts from your notes.
+- **A starter layout in CSS**: a fixed frame with the title at the top and a balanced body, like a well-built web page. Lopsided slides went from 54 of 166 to 0.
+- **Style as a few settings**, so the agent still draws its own charts for your decision.
+- **A checker** that screenshots every slide in your Chrome so the agent fixes its own overflow, stray labels and empty space.
+- **Your instructions win**: ask for your brand, your template or your own layout and the agent follows you.
+
+[![The same pricing decision in six styles, each asked for in one line: a forest-green brand with serif titles, a dark keynote, a magazine feature, a poster layout with no title bar, a navy strategy-consulting deck, and a bright coral and sunflower deck.](examples/previews/decision-deck-styles.png)](docs/decision-deck-results.md)
+
+```sh
+# Claude Code
+npx skills add arunai30/super-document-skills --agent claude-code --skill create-html-presentation --copy
+# Codex
+npx skills add arunai30/super-document-skills --agent codex --skill create-html-presentation --copy
+```
+
+Then give your agent your notes and the decision you need. [How it was tested, with every number](docs/decision-deck-results.md).
+
+## Six skills for the documents you make
+
 [![Cedar Studio decision brief: a conditional recommendation, a pending decision, and a complete side-by-side cost and delivery comparison.](examples/previews/client-decision-brief.png)](https://shareartifacts.dev/examples/client-decision-brief)
 
 *A complete fictional client brief: recommendation, tradeoffs, and the decision needed. [Open the live example](https://shareartifacts.dev/examples/client-decision-brief).*
