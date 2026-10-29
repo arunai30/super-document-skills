@@ -13,6 +13,7 @@ The crops keep complete sections, chart scales, caveats, and sequence outcomes.
 | Decision deck before/after | Release-test decks for the pricing request, Claude Opus 5.5 on its own and with the skill | Complete slides 1 and 2 of each deck at 1280 × 720, unedited; [results](../../docs/decision-deck-results.md) |
 | Product update before/after | Release-test decks for the CEO growth-update request (held out from tuning), Claude Opus 5.5 on its own (slides 1 and 3) and with the skill (slides 1 and 2) | Complete slides at 1280 × 720, unedited; [results](../../docs/product-update-results.md) |
 | Roadmap before/after | Release-test decks for the CEO roadmap request with two orders (held out from tuning), Claude Opus 5.5 on its own (slides 3 and 4) and with the skill (slides 3 and 5) | Complete slides at 1280 × 720, unedited; [results](../../docs/roadmap-results.md) |
+| Talk before/after | Release-test decks for the 8th grade moon-phases lesson (held out from tuning), Claude Opus 5.5 on its own (slides 3 and 8) and with the skill (slides 5 and 7) | Complete slides at 1280 × 720, unedited; [results](../../docs/talk-deck-results.md) |
 | Decision deck styles | Decks made with the skill for the pricing request plus one style line each (Claude Opus 5.5 and Codex) | One unedited slide per deck at 1280 × 720 |
 | Weekly report | [Live example](https://shareartifacts.dev/examples/weekly-status-report) | 108, 440, 1064, 786: decision request and sprint comparison |
 
