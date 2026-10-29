@@ -42,6 +42,13 @@ npx skills add arunai30/super-document-skills --agent codex --skill create-html-
 
 Then give your agent your notes and the decision you need. [How it was tested, with every number](docs/decision-deck-results.md).
 
+## New: start from the doc you already wrote
+
+Already wrote the memo? Give your agent the doc and ask for the deck. The skill keeps your conclusion, your
+reasoning and your caveats, and adds nothing the doc doesn't say. Before this change, every test deck made from a
+finished memo added decision criteria and conditions the memo never stated; after it, a blind reviewer picked the
+new deck 8 times out of 8 and would send all 8 as they are. [How it was tested](docs/doc-to-deck-results.md).
+
 ## New: roadmap decks your leadership can agree to
 
 A roadmap deck has one job: get leadership to agree what gets built, in what order, and what that pushes out. I
