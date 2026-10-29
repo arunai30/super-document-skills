@@ -42,6 +42,31 @@ npx skills add arunai30/super-document-skills --agent codex --skill create-html-
 
 Then give your agent your notes and the decision you need. [How it was tested, with every number](docs/decision-deck-results.md).
 
+## New: talks and lessons that say only what you gave them
+
+Teaching a class, giving a meetup talk, opening a conference? I gave Claude and Codex the same 12 talk and lesson
+requests, three of them requests the skill was never tuned on. A blind reviewer read every slide and said whether
+they'd send each deck as it is.
+
+| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
+| --- | --- | --- |
+| On its own: would send | 2 of 12 | 4 of 12 |
+| **With this skill: would send** | **12 of 12** | **12 of 12** |
+
+What the talk recipe fixes:
+
+- **No facts you didn't give.** On its own, a moon-phases lesson gained "0–3 eclipses a year" and a "blood moon". With the skill, every fact, number and story comes from your notes; on held-out talks, facts presented as real but not in the notes went from 32 to 0 (Claude) and 10 to 1 (Codex).
+- **Slides that support you, not your script.** About 30 words a slide; speaker notes go in the reply. No timers, "click to reveal" or placeholders left on a slide.
+- **Titles that make the point.** Each title is a full sentence, so the titles alone tell the talk; under it, a labelled diagram, a worked example or one number.
+- **Lessons that keep every step.** The example worked in stages, the common mistake shown as a mistake, and the practice answer after the question.
+- **No AI look.** No emoji titles, rows of identical cards or gradients.
+- **The same deck for another audience.** Ask for an engineering or sales version and the skill keeps the facts, changes the emphasis and the ask, and adds no plans of its own.
+
+[![Same 8th grade moon-phases lesson request to Claude Opus 5.5. On its own, the slides add facts the teacher didn't give (27.3 days, 0–3 eclipses a year, a 5° tilt) with emoji and a timer on every slide; the reviewer wouldn't send it. With the skill, the core idea is drawn in three labelled stages and every phase the teacher listed appears in order; the reviewer would send it.](examples/previews/talk-before-after.png)](docs/talk-deck-results.md)
+
+Install it with the same commands as the decision deck above; the skill picks the talk recipe for anything that
+isn't a product decision, update or roadmap. [How it was tested, with every number](docs/talk-deck-results.md).
+
 ## New: start from the doc you already wrote
 
 Already wrote the memo? Give your agent the doc and ask for the deck. The skill keeps your conclusion, your
@@ -109,7 +134,7 @@ Install it with the same commands as the decision deck above; the skill picks th
 | Make a complex idea understandable | [Visual explainer](skills/create-visual-explainer/SKILL.md) | Carry one concrete example through a meaningful visual |
 | Help a client choose between options | [Client decision brief](skills/create-client-decision-brief/SKILL.md) | Compare costs and tradeoffs, then make a conditional recommendation |
 | Turn research or results into a decision | [Visual report](skills/create-visual-report/SKILL.md) | Connect evidence, uncertainty, and a useful next step |
-| Present an argument or lesson, update leadership, agree a roadmap, or get a product decision approved | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck; tested recipes turn product notes into a decision deck, a product update against goals, or a roadmap leadership can agree to |
+| Give a talk or lesson, update leadership, agree a roadmap, or get a product decision approved | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck; tested recipes turn your notes into a talk or lesson, a decision deck, a product update against goals, or a roadmap leadership can agree to |
 | Show how a request moves through a system | [Workflow diagram](skills/create-workflow-diagram/SKILL.md) | Lay out a short main path with supporting and feedback paths |
 
 ## See what your notes can become
