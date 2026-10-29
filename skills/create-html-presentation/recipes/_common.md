@@ -11,6 +11,12 @@ Every slide has a fixed frame: the padding and the footer line with the slide nu
 Inside the stage, compose the body the way its content needs; the starter's slides are examples, not a fixed set. Put a lead line beside the evidence (`.split`), lay out a sequence as `.steps`, set two columns (`.cols`), or write your own grid. Keep what makes the deck read as one: the frame, the type scale (h1, h2, `.lede`, body text, `.kicker`, `.note`, `.big`), one accent and left-aligned text.
 
 
+## When you start from a document or another deck
+
+When the user gives you a finished document (a memo, a status doc, a planning doc), it holds the argument; your job is to compress it into slides, not to re-argue it. Keep its conclusion, its order of reasoning and its evidence, and keep the reasoning links it makes, so a title says why as well as what. Keep the counterpoints, caveats and unknowns that would change the reader's view; those are what gets lost when a document becomes bullet points. Leave out background the reader already has, and move detail the meeting won't use to an appendix slide. Add nothing the document doesn't contain, and if the document is unsure or contradicts itself, keep that visible instead of picking a side. This holds over the recipe: when the recipe asks for something the document doesn't supply, such as ranked criteria, a reversibility note, the evidence that would reverse the recommendation, or a next step, leave that part out rather than writing it yourself; if the reader would miss it, ask the requester in your reply.
+
+When the user asks for a version of an existing deck or update for another audience, keep every fact and number exactly as it is; never make a claim stronger or a figure rounder to suit the new reader. Change what leads, how deep each point goes, the vocabulary, the length and the ask, to fit what this audience has to do with it: a leader needs the decision and the ask, a team building the work needs the scope, the constraints and the questions still open, and people talking to customers need the lines they can use and the plans that are not yet commitments. When the new audience is outside the company, or further from the decision than the original one, leave out what they shouldn't see, such as customer names, revenue, internal estimates and unannounced plans. Don't fill in what the new audience will want but the source doesn't give, such as a timeline, owners or a script; show it as open or leave it out.
+
 ## Style
 
 Put one preset class on `main`:

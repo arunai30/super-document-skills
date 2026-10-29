@@ -16,6 +16,7 @@ const allowedFiles = [
   "examples/previews/decision-deck-before-after.png", "examples/previews/decision-deck-styles.png", "docs/decision-deck-results.md",
   "examples/previews/product-update-before-after.png", "docs/product-update-results.md",
   "examples/previews/roadmap-before-after.png", "docs/roadmap-results.md",
+  "docs/doc-to-deck-results.md",
   "docs/diagram-vision.md", "examples/diagrams/checkout.webp",
   "examples/README.md", "examples/source-inputs.md",
   "examples/growth-decision-brief.html", "examples/seat-count-explainer.html",
