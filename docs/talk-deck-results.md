@@ -73,10 +73,8 @@ never sees it):
 
 | Held-out talks | Claude on its own | Claude with the skill | Codex on its own | Codex with the skill |
 | --- | --- | --- | --- | --- |
-| What the audience needs, covered | 43 of 50 | 60 of 60 | 58 of 60 | 59 of 60 |
-| Facts not in the notes, presented as real | 32 | 0 | 10 | 1 |
-
-One of the six Claude decks made on its own couldn't be scored after two attempts, so that column covers five.
+| What the audience needs, covered | 52 of 60 | 60 of 60 | 58 of 60 | 59 of 60 |
+| Facts not in the notes, presented as real | 39 | 0 | 9 | 1 |
 
 ## Results: the same deck for another audience (12 decks each way)
 
