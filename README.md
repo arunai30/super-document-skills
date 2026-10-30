@@ -55,7 +55,7 @@ they'd send each deck as it is.
 
 What the talk recipe fixes:
 
-- **No facts you didn't give.** On its own, a moon-phases lesson gained "0–3 eclipses a year" and a "blood moon". With the skill, every fact, number and story comes from your notes; on held-out talks, facts presented as real but not in the notes went from 32 to 0 (Claude) and 10 to 1 (Codex).
+- **No facts you didn't give.** On its own, a moon-phases lesson gained "0–3 eclipses a year" and a "blood moon". With the skill, every fact, number and story comes from your notes; on held-out talks, facts presented as real but not in the notes went from 39 to 0 (Claude) and 9 to 1 (Codex).
 - **Slides that support you, not your script.** About 30 words a slide; speaker notes go in the reply. No timers, "click to reveal" or placeholders left on a slide.
 - **Titles that make the point.** Each title is a full sentence, so the titles alone tell the talk; under it, a labelled diagram, a worked example or one number.
 - **Lessons that keep every step.** The example worked in stages, the common mistake shown as a mistake, and the practice answer after the question.
