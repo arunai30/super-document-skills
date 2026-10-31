@@ -8,6 +8,8 @@ No account or publishing connection required.
 
 [See the examples](examples/README.md) · [Install](#install) · [Try a complete sample](examples/try-it.md)
 
+[![Launch video: "Coding is solved. Agent decks still suck." 47 seconds of real Claude decks with and without the skill, then a blind reviewer's verdict.](examples/previews/launch-video.png)](https://x.com/arunsingh_I/status/2116591407502700823)
+
 ## New: decision decks you'd actually send
 
 Not happy with the decks Claude or Codex make? I gave both agents the same 12 product decisions. A blind
@@ -217,6 +219,17 @@ After reviewing your document, you can optionally publish it with
 MCP client. Publishing is a separate action you request; new publications default
 to owner-only access. You keep the local file whether or not you publish.
 [Connection instructions](https://shareartifacts.dev/connect) · [Publishing details](docs/usage-and-validation.md#optional-publishing-with-shareartifacts)
+
+## Guides
+
+Step-by-step write-ups on [share/artifacts](https://shareartifacts.dev/blog), with real before and after decks:
+
+- [Presentations from Claude Code and Codex](https://shareartifacts.dev/blog/presentation-with-claude-code-or-codex)
+- [Product update and decision decks with AI](https://shareartifacts.dev/blog/product-decision-and-update-decks-with-ai)
+- [Product roadmap presentation with AI](https://shareartifacts.dev/blog/roadmap-presentation-with-ai)
+- [Turn a document into slides with Claude](https://shareartifacts.dev/blog/document-to-slide-deck-with-claude)
+- [Lesson slides with Claude, step by step](https://shareartifacts.dev/blog/lesson-slides-with-claude)
+- [Why AI slides make up facts, and the fix](https://shareartifacts.dev/blog/ai-slides-make-up-facts)
 
 ## Documentation and contributing
 
