@@ -1,9 +1,9 @@
 # Client decision briefs
 
-Help a client make one pending choice with an inspectable recommendation,
-comparable options, visible uncertainty, and an exact request. This skill is for
-consultants, agencies, and project leads. It does not record approval, replace
-a contract, or manufacture a winner when the evidence is insufficient.
+Help a client make a pending choice. Use the skill to compare options on the
+same criteria, show the evidence behind your recommendation, and say what you
+need the client to decide. If the evidence is incomplete, explain what would
+change the recommendation. Record approvals in the client’s usual process.
 
 ## See the result
 
@@ -11,14 +11,13 @@ a contract, or manufacture a winner when the evidence is insufficient.
 or open [example.html](example.html) locally alongside its
 [fictional source notes](source-notes.txt). GitHub's file view shows HTML source;
 download or clone the repository to render it. The
-[artifact-first guide](https://shareartifacts.dev/guides/client-decision-brief)
+[decision brief guide](https://shareartifacts.dev/guides/client-decision-brief)
 explains the method and shows the example without requiring signup.
 
 Cedar Studio has two plausible enquiry workflows. Notice the condition attached
 to the recommendation, the matching cost and timing comparisons, the unmeasured
 baseline, and the exclusions beside the budget. Choosing an option is still
-pending. The case is fictional, not evidence of customer savings or conversion.
-Its layout is one possible treatment, not a required style.
+pending. The scenario is made up. You can ask your agent to use your own style.
 
 ## Install and try
 

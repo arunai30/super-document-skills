@@ -1,9 +1,9 @@
 # Talk, lesson and keynote decks: how it was tested
 
-The general recipe in [create-html-presentation](../skills/create-html-presentation/SKILL.md) is for every deck that
-isn't a product decision, update or roadmap: a lesson, a meetup talk, an all-hands pitch, keynote remarks, and a
-version of an existing deck for another audience. It was rebuilt from research on how people learn from slides,
-then released after it beat Claude and Codex working on their own, including on requests it was never tuned on.
+The general recipe in [create-html-presentation](../skills/create-html-presentation/SKILL.md)
+covers talks, lessons, keynotes, and versions of an existing deck for another audience. The guidance
+draws on research about how people learn from slides. The results below cover Claude and Codex with and
+without the skill, including held-out briefs.
 
 ## What it solves
 
@@ -50,14 +50,12 @@ layout").
 
   The phases lesson, the blog post, the food bank remarks and the all-hands recut were held out: the skill was
   never tuned on them.
-- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill, answered a fixed checklist for each and picked the one it would send.
+- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill, answered a fixed checklist for each.
 
 ## Results: talks and lessons (24 decks each way)
 
 | What the reviewer found | Claude on its own | Claude with the skill | Codex on its own | Codex with the skill |
 | --- | --- | --- | --- | --- |
-| **Would send as it is** | 2 of 12 | **12 of 12** | 4 of 12 | **12 of 12** |
-| Picked as the one to send | 1 of 12 | 11 of 12 | 3 of 12 | 9 of 12 |
 | States something that isn't in the notes | 8 | 0 | 8 | 0 |
 | Working notes left on a slide | 7 | 1 | 6 | 1 |
 | Looks like a template or AI default | 5 | 0 | 1 | 0 |
@@ -80,8 +78,6 @@ never sees it):
 
 | What the reviewer found | Claude on its own | Claude with the skill | Codex on its own | Codex with the skill |
 | --- | --- | --- | --- | --- |
-| **Would send as it is** | 0 of 6 | **3 of 6** | 2 of 6 | **3 of 6** |
-| Picked as the one to send | 1 of 6 | 5 of 6 | 3 of 6 | 3 of 6 |
 | States something that isn't in the source | 6 | 0 | 3 | 0 |
 | Looks plain or sparse | 0 | 3 | 0 | 5 |
 

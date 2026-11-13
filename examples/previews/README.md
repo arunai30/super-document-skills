@@ -1,7 +1,7 @@
 # Preview sources and framing
 
-Captured September 21, 2026 in Chromium with a 1280 CSS-pixel-wide viewport and
-2× device scale. No HTML content, CSS, figures, or labels were changed for capture.
+The first four previews were captured September 21, 2026 in Chromium with a
+1280 CSS-pixel-wide viewport and 2× device scale. No HTML content, CSS, figures, or labels were changed for capture.
 The crops keep complete sections, chart scales, caveats, and sequence outcomes.
 
 | Preview | Source | Selection (CSS pixels: x, y, width, height) |

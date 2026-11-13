@@ -2,8 +2,8 @@
 
 The product-update recipe in [create-html-presentation](../skills/create-html-presentation/SKILL.md) is for the
 regular update a product manager gives leadership: where things stand against the goals, what changed, and
-what's needed from the reader. It was released after it beat Claude and Codex working on their own, including on
-requests it was never tuned on.
+what’s needed from the reader. The results below cover Claude and Codex with and without the skill,
+including held-out briefs.
 
 ## Why this deck
 
@@ -25,7 +25,7 @@ matches the nuance in the data".
   - a quarterly business review where growth hides a concentration risk
 
   The last three were held out: the skill was never tuned on them.
-- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill. It answered a fixed checklist for each deck and picked the one it would send.
+- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill. It answered a fixed checklist for each deck.
 - **Checklist:** built from what people complain about in AI-made decks:
   - invented facts or causes
   - the AI template look
@@ -37,8 +37,6 @@ matches the nuance in the data".
 
 | What the reviewer found | Claude on its own | Claude with the skill | Codex on its own | Codex with the skill |
 | --- | --- | --- | --- | --- |
-| **Would send as it is** | 0 of 12 | **12 of 12** | 2 of 12 | **11 of 12** |
-| Picked as the one to send | 1 of 12 | 11 of 12 | 2 of 12 | 10 of 12 |
 | States something that isn't in the notes | 11 | 0 | 5 | 0 |
 | Too long for what was asked | 5 | 0 | 6 | 0 |
 | Broken layout | 5 | 0 | 4 | 1 |

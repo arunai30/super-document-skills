@@ -1,9 +1,8 @@
 # Roadmap deck: how it was tested
 
 The roadmap recipe in [create-html-presentation](../skills/create-html-presentation/SKILL.md) is for the deck a
-product manager uses to get leadership to agree what gets built, in what order, and what that pushes out. It also
-makes the customer-facing version sales can show prospects. It was released after it beat Claude and Codex
-working on their own, including on requests it was never tuned on.
+product manager uses to get leadership to agree what gets built, in what order, and what that pushes out. The test also includes a customer-facing roadmap. The results cover Claude and Codex with and without
+the skill, including held-out briefs.
 
 ## What it solves
 
@@ -47,14 +46,12 @@ top reply was "Plan for one year. Commit to next quarter."
   - a re-plan showing what moves if the team takes its biggest customer's request
 
   The last three were held out: the skill was never tuned on them.
-- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill, answered a fixed checklist for each and picked the one it would send.
+- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill, answered a fixed checklist for each.
 
 ## Results (24 decks each way)
 
 | What the reviewer found | Claude on its own | Claude with the skill | Codex on its own | Codex with the skill |
 | --- | --- | --- | --- | --- |
-| **Would send as it is** | 0 of 12 | **12 of 12** | 2 of 12 | **11 of 12** |
-| Picked as the one to send | 0 of 12 | 12 of 12 | 2 of 12 | 10 of 12 |
 | States something that isn't in the notes | 12 | 0 | 5 | 0 |
 | Broken layout | 7 | 0 | 8 | 0 |
 | Too long for what was asked | 9 | 0 | 5 | 0 |
@@ -76,8 +73,7 @@ what the agents added:
 | Other invented claims | 33 | 8 | 16 | 12 |
 
 Routing: 12 of 12 roadmap requests went to this recipe on Claude and 10 of 12 on Codex; Codex sent the re-plan
-framed as "approve or decline" to the [decision deck](decision-deck-results.md) both times, and both of those
-decks were ones the reviewer would send. Decision, update and talk requests still went to their own recipes.
+framed as "approve or decline" to the [decision deck](decision-deck-results.md) both times. Decision, update and talk requests still went to their own recipes.
 
 ## What's next
 

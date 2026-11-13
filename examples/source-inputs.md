@@ -1,4 +1,4 @@
-# Independent forward-test inputs
+# Source notes and requests for the examples
 
 These are synthetic test inputs, not evidence about actual customers.
 

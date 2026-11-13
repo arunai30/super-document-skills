@@ -1,4 +1,4 @@
-# Try it: why can two customers see the last seat?
+# Why can two customers see the last seat?
 
 Make a visual explanation for a support team, using the complete fictional example
 below. You do not need to prepare notes or connect a publishing service.
