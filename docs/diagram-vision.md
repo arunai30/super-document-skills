@@ -1,10 +1,15 @@
 # Diagrams should be files you own
 
-Our vision is to make clear, useful diagrams a normal output of working with an agent. Describe a system, review the explanation, and keep the result as portable HTML. You should not need another paid diagramming application just to explain how something works.
+Describe a system to your agent, review the flow and labels, and keep the result as an HTML file you can open and edit.
 
-**Available today:** a free, MIT-licensed [workflow diagram skill](https://github.com/arunai30/super-document-skills/tree/main/skills/create-workflow-diagram) that helps an agent write self-contained HTML and CSS. **What we want to build next:** a small, open-source JavaScript and CSS authoring library that turns a meaningful diagram specification into readable HTML. The proposed library and API below are not released.
+The free, MIT-licensed [workflow diagram skill](../skills/create-workflow-diagram/SKILL.md)
+in this repo helps your agent write a self-contained HTML and CSS file. The
+[interactive checkout example on share/artifacts](https://shareartifacts.dev/diagrams#proof)
+uses Diagram Kit for layout and Archify for search, zoom, and inspecting
+connections. This design note records the original authoring proposal. The
+illustrative API below belongs to that proposal.
 
-## The problem is understanding, not drawing boxes
+## What a workflow diagram needs to explain
 
 Agents can explain a system at extraordinary length. That does not mean a human can follow it. A useful architecture diagram answers a question: When is this request accepted? What happens if the worker fails? Which boundary does this data cross?
 
@@ -18,7 +23,7 @@ The browser already gives us text, typography, layout, links, accessibility prim
 
 HTML does not automatically produce good information design. That is what the skill and library must contribute: explicit hierarchy, useful spacing, labeled relationships, and a limit on how much one view tries to explain.
 
-This is not an argument that every existing diagram tool charges money. [draw.io is free and open source](https://www.drawio.com/). Our direction is an agent-first authoring workflow with portable output, not a claim that we invented free diagramming or have replaced every editor feature.
+This workflow is for readers who want their agent to turn system notes into an editable HTML diagram.
 
 ## What we have already tried
 
@@ -40,7 +45,7 @@ The current recipe handles a focused main path, supporting nodes, and a small nu
 
 *Diagram-only screenshot of the one-prompt checkout output. The original was HTML and CSS; this image is a preview, not the editable artifact.*
 
-## The library we want to build
+## The original library proposal
 
 Separate three responsibilities:
 
@@ -48,7 +53,7 @@ Separate three responsibilities:
 2. **Layout, owned by the recipe.** Spacing, label placement, connector routes, visual hierarchy, and theme. Start with a few well-tested diagram families rather than promise arbitrary graphs immediately.
 3. **Output, owned by the customer.** A self-contained HTML/CSS document with readable text and an accessible explanation. It must remain useful without loading our service or executing the authoring library.
 
-An illustrative specification, **not an accepted API today**:
+An illustrative specification from the original proposal:
 
 ```json
 {

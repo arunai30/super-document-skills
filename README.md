@@ -1,234 +1,93 @@
 # Super Document Skills
 
-**Turn rough notes into visual reports, presentations, and decision briefs.**
+Super Document Skills helps the agent you already use turn your notes into clearer decks, docs, and diagrams. Ask in your own words and tell the agent who will read the result. The skills guide it to put the main point first, check its claims against your notes, and review the draft. If you have a brand guide, give it to the agent. A few words about the look you want work too.
 
-Six free, open-source skills for AI agents. Bring your notes and tell your agent
-who the document is for. Get a local HTML document you can open, edit, and share.
-No account or publishing connection required.
+We gave Claude the same notes for a pricing review twice. On its own, Claude opened with a list of options and waited until slide 10 to give a recommendation. With the skill, it opened with what leadership needed to decide. The next slide showed why the recommendation focused on heavy users: the top 10% of workspaces accounted for 55% of usage costs.
 
-[See the examples](examples/README.md) · [Install](#install) · [Try a complete sample](examples/try-it.md)
+The six skills are free and open source. You can open and edit the HTML file on your computer, then use share/artifacts if you want a link you control.
 
-## New: decision decks you'd actually send
-
-Not happy with the decks Claude or Codex make? I gave both agents the same 12 product decisions. A blind
-reviewer read every slide and said whether they'd send each deck as it is.
-
-| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
-| --- | --- | --- |
-| On its own: would send | 3 of 12 | 3 of 12 |
-| **With this skill: would send** | **9 of 12** | **8 of 12** |
-
-[![Same pricing request to Claude Opus 5.5. On its own, slide 1 has no answer and slide 2 is four identical number tiles; the reviewer wouldn't send it. With the skill, slide 1 gives the recommendation and the ask and slide 2 is one chart that makes the point; the reviewer would send it.](examples/previews/decision-deck-before-after.png)](docs/decision-deck-results.md)
-
-Across all 24 decks, the skill took invented statements from 16 decks to 5, broken layouts from 11 to 0, and
-template-looking decks from 8 to 0. It isn't a longer prompt. It's six small pieces, each fixing one thing
-agents get wrong, and the agent stays free everywhere else:
-
-- **A router** picks the method for the job: an executive decision gets the decision recipe, a talk or lesson gets the general one.
-- **Argument rules**: the answer and the ask on slide 1, every option (including waiting) with the same numbers, only facts from your notes.
-- **A starter layout in CSS**: a fixed frame with the title at the top and a balanced body, like a well-built web page. Lopsided slides went from 54 of 166 to 0.
-- **Style as a few settings**, so the agent still draws its own charts for your decision.
-- **A checker** that screenshots every slide in your Chrome so the agent fixes its own overflow, stray labels and empty space.
-- **Your instructions win**: ask for your brand, your template or your own layout and the agent follows you.
-
-[![The same pricing decision in six styles, each asked for in one line: a forest-green brand with serif titles, a dark keynote, a magazine feature, a poster layout with no title bar, a navy strategy-consulting deck, and a bright coral and sunflower deck.](examples/previews/decision-deck-styles.png)](docs/decision-deck-results.md)
-
-```sh
-# Claude Code
-npx skills add arunai30/super-document-skills --agent claude-code --skill create-html-presentation --copy
-# Codex
-npx skills add arunai30/super-document-skills --agent codex --skill create-html-presentation --copy
-```
-
-Then give your agent your notes and the decision you need. [How it was tested, with every number](docs/decision-deck-results.md).
-
-## New: talks and lessons that say only what you gave them
-
-Teaching a class, giving a meetup talk, opening a conference? I gave Claude and Codex the same 12 talk and lesson
-requests, three of them requests the skill was never tuned on. A blind reviewer read every slide and said whether
-they'd send each deck as it is.
-
-| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
-| --- | --- | --- |
-| On its own: would send | 2 of 12 | 4 of 12 |
-| **With this skill: would send** | **12 of 12** | **12 of 12** |
-
-What the talk recipe fixes:
-
-- **No facts you didn't give.** On its own, a moon-phases lesson gained "0–3 eclipses a year" and a "blood moon". With the skill, every fact, number and story comes from your notes; on held-out talks, facts presented as real but not in the notes went from 39 to 0 (Claude) and 9 to 1 (Codex).
-- **Slides that support you, not your script.** About 30 words a slide; speaker notes go in the reply. No timers, "click to reveal" or placeholders left on a slide.
-- **Titles that make the point.** Each title is a full sentence, so the titles alone tell the talk; under it, a labelled diagram, a worked example or one number.
-- **Lessons that keep every step.** The example worked in stages, the common mistake shown as a mistake, and the practice answer after the question.
-- **No AI look.** No emoji titles, rows of identical cards or gradients.
-- **The same deck for another audience.** Ask for an engineering or sales version and the skill keeps the facts, changes the emphasis and the ask, and adds no plans of its own.
-
-[![Same 8th grade moon-phases lesson request to Claude Opus 5.5. On its own, the slides add facts the teacher didn't give (27.3 days, 0–3 eclipses a year, a 5° tilt) with emoji and a timer on every slide; the reviewer wouldn't send it. With the skill, the core idea is drawn in three labelled stages and every phase the teacher listed appears in order; the reviewer would send it.](examples/previews/talk-before-after.png)](docs/talk-deck-results.md)
-
-Install it with the same commands as the decision deck above; the skill picks the talk recipe for anything that
-isn't a product decision, update or roadmap. [How it was tested, with every number](docs/talk-deck-results.md).
-
-## New: start from the doc you already wrote
-
-Already wrote the memo? Give your agent the doc and ask for the deck. The skill keeps your conclusion, your
-reasoning and your caveats, and adds nothing the doc doesn't say. Before this change, every test deck made from a
-finished memo added decision criteria and conditions the memo never stated; after it, a blind reviewer picked the
-new deck 8 times out of 8 and would send all 8 as they are. [How it was tested](docs/doc-to-deck-results.md).
-
-## New: roadmap decks your leadership can agree to
-
-A roadmap deck has one job: get leadership to agree what gets built, in what order, and what that pushes out. I
-gave Claude and Codex the same 12 roadmap requests, three of them requests the skill was never tuned on. A blind
-reviewer read every slide and said whether they'd send each deck as it is.
-
-| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
-| --- | --- | --- |
-| On its own: would send | 0 of 12 | 2 of 12 |
-| **With this skill: would send** | **12 of 12** | **11 of 12** |
-
-What the roadmap recipe fixes:
-
-- **No plans you didn't make.** On their own, every deck added owners, deadlines, checkpoints or "decision needed today". With the skill, dates, estimates and next steps come only from your notes.
-- **No recommendation you didn't give.** When the reader has to choose, the options are set out alike.
-- **Evidence at its real size.** No "biggest churn driver" for a reason 31% of exit surveys gave.
-- **Honest timelines.** Quarters or now / next / later, whichever your leader wants, with confidence falling with distance and real commitments marked.
-- **Tradeoffs in the open.** What each order delays and a short "not now" list, on their own slides.
-- **Customer roadmaps that are safe to send.** No customer names, revenue, estimates or slips; uncertain items not promised; quarters labelled; no added marketing claims.
-
-[![Same CEO roadmap request to Claude Opus 5.5. On its own, the timeline adds a slip risk the notes don't give and the comparison slide adds risks that tilt a neutral choice; the reviewer wouldn't send it. With the skill, one timeline shows both orders and the shared work, and the closing slide asks a neutral question built only from the notes; the reviewer would send it.](examples/previews/roadmap-before-after.png)](docs/roadmap-results.md)
-
-Install it with the same commands as the decision deck above; the skill picks the roadmap recipe when you ask for
-a roadmap. [How it was tested, with every number](docs/roadmap-results.md).
-
-## New: product updates that don't make things up
-
-Your VP reads your update to see where things stand and what you need. I gave Claude and Codex the same 12 product
-updates, three of them requests the skill was never tuned on. A blind reviewer read every slide and said whether
-they'd send each deck as it is.
-
-| | Claude Opus 5.5 | Codex (GPT-6.1 Sol) |
-| --- | --- | --- |
-| On its own: would send | 0 of 12 | 2 of 12 |
-| **With this skill: would send** | **12 of 12** | **11 of 12** |
-
-[![Same CEO growth update to Claude Opus 5.5. On its own, slide 1 is three number tiles with no ask, and slide 3 says why subscriptions jumped although the notes say nobody knows yet; the reviewer wouldn't send it. With the skill, slide 1 gives where things stand and the ask, and slide 2 says the cause is unknown, names both possible causes and charts actual against target; the reviewer would send it.](examples/previews/product-update-before-after.png)](docs/product-update-results.md)
-
-On their own, both agents explained numbers the notes couldn't explain and added owners, deadlines and
-recommendations nobody made. With the skill, the reviewer flagged invented statements in 0 of 24 decks, against 16
-of 24 without it. The recipe puts the state and the ask on slide 1, shows every result against its target, says
-"we don't know yet" when that's true, and spends the slides on what missed or moved.
-
-Install it with the same commands as the decision deck above; the skill picks the update recipe when you ask for a regular update.
-[How it was tested, with every number](docs/product-update-results.md).
-
-## Six skills for the documents you make
-
-[![Cedar Studio decision brief: a conditional recommendation, a pending decision, and a complete side-by-side cost and delivery comparison.](examples/previews/client-decision-brief.png)](https://shareartifacts.dev/examples/client-decision-brief)
-
-*A complete fictional client brief: recommendation, tradeoffs, and the decision needed. [Open the live example](https://shareartifacts.dev/examples/client-decision-brief).*
+[Find a skill](#start-with-the-job-you-need-done) · [Install](#install) · [See the pricing comparison](https://shareartifacts.dev/#difference)
 
 ## Start with the job you need done
 
-| I need to… | Start here | What the skill helps you do |
-| --- | --- | --- |
-| Turn project notes into a weekly update | [Project-management artifacts](skills/create-project-management-artifact/SKILL.md) | Surface progress, blockers, risks, and the decision needed |
-| Make a complex idea understandable | [Visual explainer](skills/create-visual-explainer/SKILL.md) | Carry one concrete example through a meaningful visual |
-| Help a client choose between options | [Client decision brief](skills/create-client-decision-brief/SKILL.md) | Compare costs and tradeoffs, then make a conditional recommendation |
-| Turn research or results into a decision | [Visual report](skills/create-visual-report/SKILL.md) | Connect evidence, uncertainty, and a useful next step |
-| Give a talk or lesson, update leadership, agree a roadmap, or get a product decision approved | [HTML presentation](skills/create-html-presentation/SKILL.md) | Build a story across a paced, browser-readable deck; tested recipes turn your notes into a talk or lesson, a decision deck, a product update against goals, or a roadmap leadership can agree to |
-| Show how a request moves through a system | [Workflow diagram](skills/create-workflow-diagram/SKILL.md) | Lay out a short main path with supporting and feedback paths |
+The [presentation skill](skills/create-html-presentation/SKILL.md) helps your agent build a deck for a decision, product update, roadmap, talk, or lesson. It puts the point up front and gives each slide a job. The [visual report skill](skills/create-visual-report/SKILL.md) helps turn research, notes, and results into a report with the evidence and caveats close to the finding.
 
-## See what your notes can become
+For project work, the [project management skill](skills/create-project-management-artifact/SKILL.md) covers weekly updates, plans, and decision records. It helps show what moved, what is blocked, and who needs to act. If a client needs to choose between options, the [client decision brief skill](skills/create-client-decision-brief/SKILL.md) helps compare them on the same criteria and explain what would change the recommendation.
 
-These examples use fictional inputs. They demonstrate possible results, not a
-required visual style. Follow each example to its input, exact request, and output.
+The [visual explainer skill](skills/create-visual-explainer/SKILL.md) uses concrete examples and diagrams to explain an idea. The [workflow diagram skill](skills/create-workflow-diagram/SKILL.md) helps map a system's main path, supporting steps, and failure paths.
 
-| From this… | To this… | Explore |
-| --- | --- | --- |
-| Cohort counts and a stakeholder claim | A growth brief that checks the claim and compares the options | [Report walkthrough](examples/README.md#turn-results-into-a-decision) |
-| Six rules about seat reservations | A visual explanation of why two people can see the last seat | [Explainer walkthrough](examples/README.md#make-a-complex-idea-click) |
-| Pilot results and incomplete feedback | A five-slide case for a bounded next step | [Presentation walkthrough](examples/README.md#build-a-story-for-a-decision) |
+## Examples
 
-[![Slide 2: a visual comparison of median first-task times, with the limits of the evidence visible.](examples/previews/onboarding-pilot-deck.png)](examples/README.md#build-a-story-for-a-decision)
+These examples use made-up scenarios. The [onboarding pilot deck](examples/README.md#build-a-story-for-a-decision) makes a case for extending a pilot and keeps the limits of the evidence beside the results. The [client decision brief](https://shareartifacts.dev/examples/client-decision-brief) compares costs, exclusions, and timing. The [checkout workflow diagram](examples/README.md#show-how-a-system-works) shows when an order is accepted.
 
-*HTML presentations: a complete evidence slide, rather than just the title.*
+[![Six styles for the same pricing decision, including forest green with serif titles, a dark keynote, and a coral and sunflower design.](examples/previews/decision-deck-styles.png)](docs/decision-deck-results.md)
 
-[![Blueprint workflow diagram with an order path, supporting systems, and a confirmation return path.](examples/diagrams/checkout.webp)](examples/README.md#show-how-a-system-works)
-
-*Workflow diagrams: named steps and labeled connections in a blueprint style.*
-
-[Explore all six visual examples](examples/README.md), including report charts,
-a worked timeline, and a weekly update. Styles are examples, not fixed templates.
+You can ask your agent for a different look each time. Explore [more deck styles](https://shareartifacts.dev/presentations/gallery) or see [how a saved style carries across formats](https://shareartifacts.dev/styles#styles-in-action).
 
 ## Install
 
-For Codex, run this from your project to install the visual explainer used in
-[the complete starter example](examples/try-it.md):
+To install the presentation skill, run the command for your agent from your project.
+
+For Claude Code
 
 ```sh
-npx skills add arunai30/super-document-skills --agent codex --skill create-visual-explainer --copy
+npx skills add arunai30/super-document-skills --agent claude-code --skill create-html-presentation --copy
 ```
 
-Or install all six:
+For Codex
 
 ```sh
-npx skills add arunai30/super-document-skills --agent codex --skill '*' --copy
+npx skills add arunai30/super-document-skills --agent codex --skill create-html-presentation --copy
 ```
 
-Review an existing copy before replacing it. Confirm the skill appears in your
-client's skill selector or discovery list before using it.
+To install another skill, replace `create-html-presentation` with its folder name. You can also pass `'*'` to install all six. If you already have a copy, review it before replacing it. Then check that your agent can find the skill.
 
-**Using another agent?** These are portable [Agent Skills](https://agentskills.io/specification).
-Use your client's supported import flow to import a complete folder from
-[skills](skills), including its assets, references, and license. Client support
-varies; see [manual installation and compatibility notes](docs/usage-and-validation.md#install).
-A clone or ZIP download alone does not activate the skills.
+If your agent supports [Agent Skills](https://agentskills.io/specification), you can also [import the complete skill folder](docs/usage-and-validation.md#install), including its assets, references, and license.
 
-## Try it with everything supplied
+## Try a skill
 
-Start with [Why can two customers see the last seat?](examples/try-it.md)
-The sample includes the complete prompt and source material, a reference output,
-and a short checklist for reviewing your result.
-
-For your own work, give the installed skill four things:
+Give your agent the notes, say who will read the result, and describe what they need to decide or understand. You can also tell it how you want the result to look.
 
 > Use create-visual-report to turn the attached pilot notes into a decision brief
 > for our operations lead. Help them decide whether to extend the pilot. Compare
 > the options, show the evidence and unknowns, and use a warm editorial style.
-> Create a local HTML file; do not publish it.
+> Create a local HTML file. Keep it local for review.
 
-**Your material · Your reader · The decision or takeaway · Your visual direction.**
+Open the file in a browser and check the facts and layout. If you want to start with sample notes, [try the seat reservation explainer](examples/try-it.md).
 
-The default output is local HTML. Several skills can honor a requested different
-format when suitable tools are available; the presentation skill specifically
-creates HTML decks. Open the result in a browser and review its facts and appearance
-before sharing. See [format and review guidance](docs/usage-and-validation.md#use).
+## Presentation test results
 
-## Why use a skill?
+We gave Claude Code with Claude Opus 5.5 and Codex with GPT-6.1 Sol six briefs for each kind of deck below. Each agent made two decks per brief on its own and two with the skill. Three briefs in each group were held out during tuning. A model reviewer read every slide without knowing which decks used the skill.
 
-Each skill gives your agent a repeatable method for choosing the story, preserving
-the evidence, designing useful visuals, and checking the result. You can change
-the visual direction without having to rewrite that method for every document.
-The [source notes and outputs](examples/README.md) make that method inspectable.
+The reviewer counted decks that included a statement the source notes did not support. Each column covers 24 decks across Claude and Codex.
 
-## Want a shareable link?
+| Deck type | Agents on their own | Agents using the skill |
+| --- | ---: | ---: |
+| [Product decisions](docs/decision-deck-results.md) | 16 of 24 | 5 of 24 |
+| [Talks and lessons](docs/talk-deck-results.md) | 16 of 24 | 0 of 24 |
+| [Roadmaps](docs/roadmap-results.md) | 17 of 24 | 0 of 24 |
+| [Product updates](docs/product-update-results.md) | 16 of 24 | 0 of 24 |
 
-After reviewing your document, you can optionally publish it with
-[share/artifacts](https://shareartifacts.dev) through an already-connected compatible
-MCP client. Publishing is a separate action you request; new publications default
-to owner-only access. You keep the local file whether or not you publish.
-[Connection instructions](https://shareartifacts.dev/connect) · [Publishing details](docs/usage-and-validation.md#optional-publishing-with-shareartifacts)
+A [separate test on two decision memos](docs/doc-to-deck-results.md) compared versions of the skill. The model reviewer flagged unsupported statements in 8 of 8 decks before the change and 0 of 8 after it.
+
+## Share a link
+
+You can use the skills on your computer without a share/artifacts account. If you want to share your work, connect a compatible agent and ask it to publish. The link starts private. You can open it to anyone, protect it with a password, or limit access to specific people or your organization. You can also set an expiry date and make changes at the same address.
+
+If you save your fonts, colors, and layout preferences in share/artifacts, connected agents with access can reuse them. Readers can open a deck on their phones or present it full screen. Where PDF export is enabled, they can download a copy.
+
+The first five successful publishing actions are free. Each publish, update, or republish counts as one.
+
+[Connect your agent](https://shareartifacts.dev/connect) · [How sharing works](docs/usage-and-validation.md#optional-publishing-with-shareartifacts) · [Publishing plans](https://shareartifacts.dev/pricing)
 
 ## Documentation and contributing
 
-- [Usage, compatibility, and validation](docs/usage-and-validation.md)
-- [Diagram vision and supported scope](docs/diagram-vision.md)
-- [Client decision brief guide](examples/client-decision-brief/README.md)
-- [Report a problem or request a document type](https://github.com/arunai30/super-document-skills/issues)
+The [usage guide](docs/usage-and-validation.md) covers installation, supported formats, and validation. You can also read about [workflow diagrams](docs/diagram-vision.md) or follow the [client decision brief walkthrough](examples/client-decision-brief/README.md).
 
-When reporting a result, include the skill, agent client, intended reader, and what
-was unclear. Use redacted or fictional source material when sharing an example.
-Maintainers can run `node --test tests/*.test.mjs` with Node.js 24 or newer.
+If something is unclear or you want to suggest another document type, [open an issue](https://github.com/arunai30/super-document-skills/issues).
+
+When reporting a result, include the skill, agent, intended reader, and what was unclear. Use redacted or made-up source notes when sharing an example. Maintainers can run `node --test tests/*.test.mjs` with Node.js 24 or newer.
 
 ## License
 
-[MIT](LICENSE). Each skill includes its own license copy.
+[MIT](LICENSE). Each skill includes a copy of the license.

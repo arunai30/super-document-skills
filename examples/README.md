@@ -1,10 +1,8 @@
 # See what your notes can become
 
-Six examples of fictional source material turned into useful documents.
-Screenshots show actual rendered examples; click an image to enlarge it.
-The report, explainer, presentation, and client brief include full HTML files to
-download and open in a browser. The newer weekly example links to its live page;
-the blueprint is an image reference. GitHub shows HTML source rather than rendering it.
+These six examples use made-up scenarios. Download the report, explainer,
+deck, or client brief to open it in a browser. View the weekly update on the
+website and the checkout diagram as an image.
 
 **New here? [Try the complete copy-paste example](try-it.md).**
 
@@ -57,9 +55,9 @@ rather than a collection of results.
 
 ## Help a client choose
 
-The fictional Cedar Studio example compares two enquiry workflows, with matching
+The Cedar Studio example compares two enquiry workflows, with matching
 costs, exclusions, and a conditional recommendation. The complete page shows how
-editorial hierarchy brings the recommendation, comparison, and requested decision together.
+the recommendation, comparison, and decision fit on one page.
 
 [![Complete Cedar Studio client brief with recommendation, comparison and next steps.](previews/client-decision-brief.png)](previews/client-decision-brief.png)
 
@@ -76,15 +74,13 @@ launch readiness.
 
 [Live example and source notes](https://shareartifacts.dev/examples/weekly-status-report) · [Project-management skill](../skills/create-project-management-artifact/SKILL.md)
 
-This is a curated design example, not an output from the library's original
-independent skill test. The [bundled weekly example](../skills/create-project-management-artifact/assets/weekly-update-example.html)
-uses a different fictional project.
+We made this example for the website. The [weekly update bundled with the skill](../skills/create-project-management-artifact/assets/weekly-update-example.html)
+uses a different made-up project.
 
 ## Show how a system works
 
 A blueprint-style order flow shows the main path, two supporting systems, and
-when the customer receives confirmation. The labeled arrows carry meaning;
-the color is a visual direction you can change.
+when the customer receives confirmation. Use the labeled arrows to follow the order. You can ask your agent for a different style.
 
 [![Order flow through customer, checkout API, order log, fulfillment and warehouse, with inventory and operations support.](diagrams/checkout.webp)](diagrams/checkout.webp)
 
@@ -92,10 +88,10 @@ the color is a visual direction you can change.
 
 ## About these examples
 
-These are possible outputs, not customer results, fixed templates, or guaranteed
-outcomes. Screenshots are selected sections except for the full client brief and
-complete presentation slide. Text remains available in the linked HTML or source
-notes; enlarge a screenshot to inspect small labels.
+Each example shows one way to structure and style the result. You can give your
+agent a brand guide or describe the look you want. The full client brief and
+one complete slide are shown here. The other screenshots show selected sections.
+Read the text in the linked HTML or source notes.
 
 The original report and explainer were inspected at desktop and 390/320px widths;
 the deck was also checked slide by slide and in print.

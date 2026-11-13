@@ -67,19 +67,18 @@ sharing the result.
 
 ## Optional publishing with share/artifacts
 
-Content creation comes first. Publishing is a separate action that requires
-your explicit request and an already-connected compatible MCP client.
+Create and review the local file first. When you want a link you control,
+ask your agent to publish it through an already-connected, compatible MCP client.
 
-The included references describe first-party recipes, requested saved styles
-where supported, and publishing through [share/artifacts](https://shareartifacts.dev).
-New publications default to owner-only access. The skills do not set up an
-account, collect credentials in chat, change saved styles, or make a local draft
-public as a side effect. If publishing is unavailable, you still keep the local
-artifact.
+The skill references explain how to use a saved style where supported and how to share through [share/artifacts](https://shareartifacts.dev).
+By default, new publications are owner-only. You choose who can open the link
+and can update the artifact at the same URL. You can keep and edit the local file after sharing.
+Set up your account and manage saved styles in share/artifacts. Installing
+a skill requires only your agent client’s skill installation flow.
 
-See [connection instructions](https://shareartifacts.dev/connect) and the
-[MCP tool reference](https://shareartifacts.dev/mcp). No live account connection
-or hosted-publishing compatibility is implied by installing a skill.
+See the [connection instructions](https://shareartifacts.dev/connect),
+[MCP tool reference](https://shareartifacts.dev/mcp), and
+[hosting pricing](https://shareartifacts.dev/pricing).
 
 ## Validation
 
@@ -152,12 +151,15 @@ was previously reviewed at desktop and narrow widths.
 
 ## Repeatable workflow diagrams
 
-The diagram skill now includes a self-contained HTML/CSS template and a small
-connector grammar. Your agent writes the HTML directly; CSS calculates positions
-and paths in the browser. Creation needs no Node, Python, generator, package
+The workflow diagram skill includes a self-contained HTML/CSS template and a
+small connector grammar. Your agent writes the HTML directly; CSS calculates
+positions and paths in the browser. Creation needs no Node, Python, generator, package
 installation, external JavaScript library, account, or generation service.
 The `npx` command above is one optional installation method, not a creation
 requirement; clients that import skill folders can use the ZIP/manual route.
+
+The [interactive checkout example](https://shareartifacts.dev/diagrams#proof) on
+the website uses Diagram Kit for layout and Archify for browsing connections.
 
 Example: “Use create-workflow-diagram to show our webhook receiver, durable
 acceptance, and worker retry path. Use blueprint style. Create an HTML file.”

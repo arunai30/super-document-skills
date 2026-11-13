@@ -1,7 +1,7 @@
 # Decision deck: how it was tested
 
-The decision-deck recipe in [create-html-presentation](../skills/create-html-presentation/SKILL.md) was released
-only after it beat Claude and Codex working on their own, on requests it was never tuned on.
+The decision-deck recipe in [create-html-presentation](../skills/create-html-presentation/SKILL.md) helps your agent lead with a recommendation and compare options using the same evidence.
+The results below cover Claude and Codex with and without the skill, including held-out briefs.
 
 ## The test
 
@@ -15,7 +15,7 @@ only after it beat Claude and Codex working on their own, on requests it was nev
   - build or buy search
 
   The last three were held out: the skill was never tuned on them.
-- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill. It answered a fixed checklist for each deck and picked the one it would send.
+- **Reviewer:** a blind model reviewer that read every slide image of two decks for the same request without knowing which used the skill. It answered a fixed checklist for each deck.
 - **Checklist:** built from what people complain about in AI-made decks (Reddit, Hacker News and published surveys):
   - invented facts
   - no clear position
@@ -28,7 +28,6 @@ only after it beat Claude and Codex working on their own, on requests it was nev
 
 | What the reviewer found | Claude on its own | Claude with the skill | Codex on its own | Codex with the skill |
 | --- | --- | --- | --- | --- |
-| **Would send as it is** | 3 of 12 | **9 of 12** | 3 of 12 | **8 of 12** |
 | States something that isn't in the notes | 8 | 3 | 8 | 2 |
 | Too long for what was asked | 5 | 2 | 9 | 0 |
 | Broken layout | 5 | 0 | 6 | 0 |
@@ -60,7 +59,6 @@ Each piece fixes one kind of problem. The agent is free everywhere else.
 
 ## What's next
 
-- Codex with the skill is sent 9 of 12 times when the reviewer picks between the pair, and looks better in 5 of 12. Its looks are next.
 - Statements the reviewer couldn't trace to the notes are down from 16 decks to 5.
 
 Every release goes through the same test against the agents on their own.

@@ -1,9 +1,9 @@
 # Starting from your doc: how it was tested
 
 Product managers do their thinking in a doc and then retype it into slides, and "something always gets flattened"
-(r/ProductManagement). The shared base of [create-html-presentation](../skills/create-html-presentation/SKILL.md)
-now has a section for decks made from a finished document: keep the doc's conclusion, order of reasoning,
-evidence and caveats, keep the "because" in the titles, and add nothing the doc doesn't contain.
+(r/ProductManagement). When you give [the presentation skill](../skills/create-html-presentation/SKILL.md) a finished document,
+it asks the agent to keep the conclusion, reasoning, evidence, and caveats. The slide titles carry the
+reasoning, and the source sets the limits on what the agent can claim.
 
 ## What went wrong before
 
@@ -23,8 +23,6 @@ document doesn't supply is left out, and the agent asks you about it in its repl
 
 | On the two memo requests (8 pairs) | Skill before | Skill after |
 | --- | --- | --- |
-| **Would send as it is** | 0 of 8 | **8 of 8** |
-| Picked as the one to send | 0 of 8 | 8 of 8 |
 | Looks better of the pair | 0 of 8 | 8 of 8 |
 | States something that isn't in the memo | 8 of 8 | 0 of 8 |
 
